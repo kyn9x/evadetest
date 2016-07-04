@@ -4369,7 +4369,7 @@ namespace Evade
                 new SpellData
                 {
                     ChampionName = "Zyra",
-                    SpellName = "Stranglethorns",
+                    SpellName = "ZyraR",
                     Slot = SpellSlot.R,
                     Type = SkillShotType.SkillshotCircle,
                     Delay = 500,
@@ -4380,7 +4380,7 @@ namespace Evade
                     AddHitbox = true,
                     DangerValue = 3,
                     IsDangerous = true,
-                    MissileSpellName = "Stranglethorns",
+                    MissileSpellName = "ZyraR",
                 });
 
             #endregion Zyra
