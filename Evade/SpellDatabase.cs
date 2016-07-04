@@ -4381,6 +4381,8 @@ namespace Evade
                     DangerValue = 3,
                     IsDangerous = true,
                     MissileSpellName = "ZyraR",
+                    ExtraDuration = 1300,
+                    DontCross = true,
                 });
 
             #endregion Zyra
