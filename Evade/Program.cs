@@ -137,9 +137,9 @@ namespace Evade
             //Initialze the collision
             Collision.Init();
 
-            Chat.Print("Evade: Add CassiopeiaW", Color.Red);
+            Chat.Print("Evade: Evade By Kyn", Color.Red);
             Chat.Print("Update: 02/07/2016", Color.Green);
-            Console.WriteLine("Evade:: Evade: Add CassiopeiaW");
+            Console.WriteLine("Evade:: Evade: Evade By Kyn");
             Console.WriteLine("Evade::Update: 02/07/2016");
             
             if (Config.PrintSpellData)
@@ -1449,7 +1449,7 @@ namespace Evade
                 var heropos = Drawing.WorldToScreen(ObjectManager.Player.Position);
                 if (Config.Menu["Enabled"].Cast<KeyBind>().CurrentValue)
                 {
-                    Drawing.DrawText(heropos.X, heropos.Y, Color.Blue, "EVADE#");
+                    Drawing.DrawText(heropos.X, heropos.Y, Color.Blue, "EVADE TEST");
                 }
             }
 
