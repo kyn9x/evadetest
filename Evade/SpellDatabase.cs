@@ -4381,7 +4381,7 @@ namespace Evade
                     DangerValue = 3,
                     IsDangerous = true,
                     MissileSpellName = "ZyraR",
-                    ExtraDuration = 1300,
+                    ExtraDuration = 1400,
                     DontCross = true,
                 });
 
