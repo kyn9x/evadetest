@@ -1830,15 +1830,15 @@ namespace Evade
                     Slot = SpellSlot.E,
                     Type = SkillShotType.SkillshotLine,
                     Delay = 780,
-                    Range = 600,
-                    Radius = 125,
+                    Range = 500,
+                    Radius = 99,
                     MissileSpeed = int.MaxValue,
                     FixedRange = false,
                     AddHitbox = true,
                     DangerValue = 3,
                     IsDangerous = true,
                     MissileSpellName = "JinxE",
-                    ExtraDuration = 500,
+                    ExtraDuration = 1200,
                     DontCross = true,
                 });
 
