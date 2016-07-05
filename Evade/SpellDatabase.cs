@@ -4335,33 +4335,13 @@ namespace Evade
                     Type = SkillShotType.SkillshotMissileLine,
                     Delay = 250,
                     Range = 1150,
-                    Radius = 70,
+                    Radius = 77,
                     MissileSpeed = 1150,
                     FixedRange = true,
                     AddHitbox = true,
                     DangerValue = 3,
                     IsDangerous = true,
                     MissileSpellName = "ZyraE",
-                    CollisionObjects = new[] {CollisionObjectTypes.YasuoWall},
-                });
-
-            Spells.Add(
-                new SpellData
-                {
-                    ChampionName = "Zyra",
-                    SpellName = "zyrapassivedeathmanager",
-                    Slot = SpellSlot.E,
-                    Type = SkillShotType.SkillshotMissileLine,
-                    Delay = 500,
-                    Range = 1474,
-                    Radius = 70,
-                    MissileSpeed = 2000,
-                    FixedRange = true,
-                    AddHitbox = true,
-                    DangerValue = 3,
-                    IsDangerous = true,
-                    MissileSpellName = "zyrapassivedeathmanager",
-                    EarlyEvade = new[] {EarlyObjects.Allies, EarlyObjects.Minions, EarlyObjects.AllyObjects},
                     CollisionObjects = new[] {CollisionObjectTypes.YasuoWall},
                 });
 
