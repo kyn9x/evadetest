@@ -637,7 +637,7 @@ namespace Evade
                     Slot = SpellSlot.Q,
                     Type = SkillShotType.SkillshotCircle,
                     Delay = 750,
-                    Range = 850,
+                    Range = 900,
                     Radius = 160,
                     MissileSpeed = int.MaxValue,
                     FixedRange = false,
@@ -665,25 +665,25 @@ namespace Evade
                     MissileSpellName = "CassiopeiaR",
                 });
 
-            Spells.Add(
-                new SpellData
-                {
-                    ChampionName = "Cassiopeia",
-                    SpellName = "CassiopeiaW",
-                    Slot = SpellSlot.W,
-                    Type = SkillShotType.SkillshotLine,
-                    Delay = 780,
-                    Range = 700,
-                    Radius = 235,
-                    MissileSpeed = int.MaxValue,
-                    FixedRange = false,
-                    AddHitbox = true,
-                    DangerValue = 3,
-                    IsDangerous = true,
-                    MissileSpellName = "CassiopeiaW",
-                    ExtraDuration = 3600,
-                    DontCross = true,
-                });
+            //Spells.Add(
+            //    new SpellData
+            //    {
+            //        ChampionName = "Cassiopeia",
+            //        SpellName = "CassiopeiaW",
+            //        Slot = SpellSlot.W,
+            //        Type = SkillShotType.SkillshotCurved,
+            //        Delay = 780,
+            //        Range = 700,
+            //        Radius = 235,
+            //        MissileSpeed = int.MaxValue,
+           //         FixedRange = false,
+           //         AddHitbox = true,
+           //         DangerValue = 3,
+           //         IsDangerous = true,
+           //         MissileSpellName = "CassiopeiaW",
+           //         ExtraDuration = 3600,
+           //         DontCross = true,
+           //     });
 
             #endregion Cassiopeia
 
