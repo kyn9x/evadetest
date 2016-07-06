@@ -681,7 +681,7 @@ namespace Evade
                     DangerValue = 3,
                     IsDangerous = true,
                     MissileSpellName = "CassiopeiaW",
-                    ExtraDuration = 3400,
+                    ExtraDuration = 3600,
                     DontCross = true,
                 });
 
