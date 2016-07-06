@@ -345,8 +345,8 @@ namespace Evade
 
                     if (skillshot.SpellData.SpellName == "CassiopeiaW")
                     {
-                        var start = skillshot.End - skillshot.Direction.Perpendicular() * 450;
-                        var end = skillshot.End + skillshot.Direction.Perpendicular() * 450;
+                        var start = skillshot.End - skillshot.Direction.Perpendicular() * 600;
+                        var end = skillshot.End + skillshot.Direction.Perpendicular() * 600;
                         var skillshotToAdd = new Skillshot(
                             skillshot.DetectionType, skillshot.SpellData, skillshot.StartTick, start, end,
                             skillshot.Unit);
