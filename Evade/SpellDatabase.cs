@@ -1074,7 +1074,7 @@ namespace Evade
                     Radius = 60,
                     MissileSpeed = 2000,
                     FixedRange = true,
-                    AddHitbox = true,
+                    AddHitbox = false,
                     DangerValue = 2,
                     IsDangerous = false,
                     MissileSpellName = "EzrealMysticShotMissile",
@@ -1097,7 +1097,7 @@ namespace Evade
                     Radius = 80,
                     MissileSpeed = 1600,
                     FixedRange = true,
-                    AddHitbox = true,
+                    AddHitbox = false,
                     DangerValue = 2,
                     IsDangerous = false,
                     MissileSpellName = "EzrealEssenceFluxMissile",
@@ -1116,7 +1116,7 @@ namespace Evade
                     Radius = 160,
                     MissileSpeed = 2000,
                     FixedRange = true,
-                    AddHitbox = true,
+                    AddHitbox = false,
                     DangerValue = 3,
                     IsDangerous = true,
                     MissileSpellName = "EzrealTrueshotBarrage",
@@ -2544,13 +2544,34 @@ namespace Evade
                     Radius = 80,
                     MissileSpeed = 1200,
                     FixedRange = true,
-                    AddHitbox = true,
+                    AddHitbox = false,
                     DangerValue = 3,
                     IsDangerous = true,
                     MissileSpellName = "DarkBindingMissile",
                     CollisionObjects =
                         new[]
                         {CollisionObjectTypes.Champions, CollisionObjectTypes.Minion, CollisionObjectTypes.YasuoWall},
+                });
+                
+                Spells.Add(
+                new SpellData
+                {
+                    ChampionName = "Morgana",
+                    SpellName = "MorganaW",
+                    Slot = SpellSlot.W,
+                    Type = SkillShotType.SkillshotCircle,
+                    Delay = 0,
+                    Range = 900,
+                    Radius = 275,
+                    MissileSpeed = int.MaxValue,
+                    FixedRange = false,
+                    AddHitbox = true,
+                    DangerValue = 2,
+                    IsDangerous = false,
+                    MissileSpellName = "TwitchVenomCaskMissile",
+                    CollisionObjects = new[] {CollisionObjectTypes.YasuoWall},
+                    ExtraDuration = 5500,
+                    DontCross = true,
                 });
 
             #endregion Morgana
@@ -3773,6 +3794,8 @@ namespace Evade
                     DangerValue = 2,
                     IsDangerous = false,
                     MissileSpellName = "VarusE",
+                    ExtraDuration = 4400,
+                    DontCross = true,
                 });
 
             Spells.Add(
