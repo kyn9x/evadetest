@@ -131,9 +131,6 @@ namespace Evade
                     Range = 1000,
                     Radius = 100,
                     MissileSpeed = 2500,
-                    MissileAccel = -3200,
-                    MissileMaxSpeed = 2500,
-                    MissileMinSpeed = 400,
                     FixedRange = true,
                     AddHitbox = true,
                     DangerValue = 2,
@@ -152,10 +149,7 @@ namespace Evade
                     Delay = 250,
                     Range = 1000,
                     Radius = 100,
-                    MissileSpeed = 60,
-                    MissileAccel = 1900,
-                    MissileMinSpeed = 60,
-                    MissileMaxSpeed = 2600,
+                    MissileSpeed = 1655,
                     FixedRange = true,
                     AddHitbox = true,
                     DangerValue = 2,
@@ -173,8 +167,8 @@ namespace Evade
                     Slot = SpellSlot.E,
                     Type = SkillShotType.SkillshotMissileLine,
                     Delay = 250,
-                    Range = 1000,
-                    Radius = 60,
+                    Range = 1015,
+                    Radius = 70,
                     MissileSpeed = 1550,
                     FixedRange = true,
                     AddHitbox = true,
@@ -1822,25 +1816,25 @@ namespace Evade
                     CollisionObjects = new[] {CollisionObjectTypes.Champions, CollisionObjectTypes.YasuoWall},
                 });
 
-            Spells.Add(
-                new SpellData
-                {
-                    ChampionName = "Jinx",
-                    SpellName = "JinxE",
-                    Slot = SpellSlot.E,
-                    Type = SkillShotType.SkillshotLine,
-                    Delay = 785,
-                    Range = 250,
-                    Radius = 90,
-                    MissileSpeed = int.MaxValue,
-                    FixedRange = false,
-                    AddHitbox = true,
-                    DangerValue = 3,
-                    IsDangerous = true,
-                    MissileSpellName = "JinxE",
-                    ExtraDuration = 4500,
-                    DontCross = true,
-                });
+            //Spells.Add(
+            //    new SpellData
+            //    {
+            //        ChampionName = "Jinx",
+            //        SpellName = "JinxE",
+            //        Slot = SpellSlot.E,
+            //        Type = SkillShotType.SkillshotLine,
+            //        Delay = 785,
+            //        Range = 250,
+            //        Radius = 90,
+            //        MissileSpeed = int.MaxValue,
+            //        FixedRange = false,
+            //        AddHitbox = true,
+            //        DangerValue = 3,
+            //        IsDangerous = true,
+            //        MissileSpellName = "JinxE",
+            //        ExtraDuration = 4500,
+            //        DontCross = true,
+            //    });
 
             #endregion Jinx
 
@@ -2323,10 +2317,10 @@ namespace Evade
                     ChampionName = "Lucian",
                     SpellName = "LucianQ",
                     Slot = SpellSlot.Q,
-                    Type = SkillShotType.SkillshotLine,
+                    Type = SkillShotType.SkillshotMissileLine,
                     Delay = 450,
                     Range = 1140,
-                    Radius = 65,
+                    Radius = 70,
                     MissileSpeed = int.MaxValue,
                     FixedRange = true,
                     AddHitbox = true,
@@ -2551,27 +2545,6 @@ namespace Evade
                     CollisionObjects =
                         new[]
                         {CollisionObjectTypes.Champions, CollisionObjectTypes.Minion, CollisionObjectTypes.YasuoWall},
-                });
-                
-                Spells.Add(
-                new SpellData
-                {
-                    ChampionName = "Morgana",
-                    SpellName = "MorganaW",
-                    Slot = SpellSlot.W,
-                    Type = SkillShotType.SkillshotCircle,
-                    Delay = 0,
-                    Range = 900,
-                    Radius = 275,
-                    MissileSpeed = int.MaxValue,
-                    FixedRange = false,
-                    AddHitbox = true,
-                    DangerValue = 2,
-                    IsDangerous = false,
-                    MissileSpellName = "TwitchVenomCaskMissile",
-                    CollisionObjects = new[] {CollisionObjectTypes.YasuoWall},
-                    ExtraDuration = 5500,
-                    DontCross = true,
                 });
 
             #endregion Morgana
