@@ -461,6 +461,7 @@ namespace Evade
                     AddHitbox = true,
                     DangerValue = 4,
                     IsDangerous = true,
+                    ExtraDelay = 75,
                     MissileSpellName = "RocketGrabMissile",
                     EarlyEvade = new[] {EarlyObjects.Allies, EarlyObjects.Minions, EarlyObjects.AllyObjects},
                     CollisionObjects =
