@@ -220,10 +220,10 @@ namespace Evade
                     DangerValue = 3,
                     IsDangerous = true,
                     MissileSpellName = "SadMummyBandageToss",
-                    EarlyEvade = new[] {EarlyObjects.Allies, EarlyObjects.Minions, EarlyObjects.AllyObjects},
+                    EarlyEvade = new[] { EarlyObjects.Allies, EarlyObjects.Minions, EarlyObjects.AllyObjects },
                     CollisionObjects =
                         new[]
-                        {CollisionObjectTypes.Champions, CollisionObjectTypes.Minion, CollisionObjectTypes.YasuoWall},
+                        { CollisionObjectTypes.Champions, CollisionObjectTypes.Minion, CollisionObjectTypes.YasuoWall },
                 });
                 
             Spells.Add(
@@ -461,12 +461,11 @@ namespace Evade
                     AddHitbox = true,
                     DangerValue = 4,
                     IsDangerous = true,
-                    ExtraDelay = 75,
                     MissileSpellName = "RocketGrabMissile",
-                    EarlyEvade = new[] {EarlyObjects.Allies, EarlyObjects.Minions, EarlyObjects.AllyObjects},
+                    EarlyEvade = new[] { EarlyObjects.Allies, EarlyObjects.Minions, EarlyObjects.AllyObjects },
                     CollisionObjects =
                         new[]
-                        {CollisionObjectTypes.Champions, CollisionObjectTypes.Minion, CollisionObjectTypes.YasuoWall},
+                        { CollisionObjectTypes.Champions, CollisionObjectTypes.Minion, CollisionObjectTypes.YasuoWall },
                 });
 
             Spells.Add(
@@ -3375,7 +3374,6 @@ namespace Evade
                     DangerValue = 2,
                     IsDangerous = false,
                     MissileSpellName = "syndrae5",
-                    DisableFowDetection = true,
                 });
 
             Spells.Add(
@@ -3393,7 +3391,6 @@ namespace Evade
                     AddHitbox = true,
                     DangerValue = 2,
                     IsDangerous = false,
-                    DisableFowDetection = true,
                     MissileSpellName = "SyndraE",
                 });
 
@@ -3718,9 +3715,9 @@ namespace Evade
                     Slot = SpellSlot.Q,
                     Type = SkillShotType.SkillshotMissileLine,
                     Delay = 0,
-                    Range = 1800,
-                    Radius = 75,
-                    MissileSpeed = 2000,
+                    Range = 1600,
+                    Radius = 70,
+                    MissileSpeed = 1900,
                     FixedRange = true,
                     AddHitbox = true,
                     DangerValue = 2,
@@ -3964,6 +3961,30 @@ namespace Evade
                 });
 
             #endregion Viktor
+            
+            #region Vladimir
+            
+            Spells.Add(
+                new SpellData
+                {
+                    ChampionName = "Vladimir",
+                    SpellName = "VladimirR",
+                    Slot = SpellSlot.R,
+                    Type = SkillShotType.SkillshotCircle,
+                    Delay = 0,
+                    Range = 375,
+                    Radius = 700,
+                    MissileSpeed = 1400,
+                    FixedRange = false,
+                    AddHitbox = true,
+                    DangerValue = 2,
+                    IsDangerous = false,
+                    MissileSpellName = "VladimirR",
+                    ExtraDuration = 5500,
+                    DontCross = true,
+                });
+                
+            #endregion Vladimir
 
             #region Xerath
 
@@ -4169,7 +4190,6 @@ namespace Evade
                     IsDangerous = false,
                     MissileSpellName = "ZiggsQSpell",
                     EarlyEvade = new[] {EarlyObjects.Allies, EarlyObjects.Minions, EarlyObjects.AllyObjects},
-                    DisableFowDetection = true,
                 });
 
             Spells.Add(
@@ -4190,7 +4210,6 @@ namespace Evade
                     MissileSpellName = "ZiggsQSpell2",
                     ExtraMissileNames = new[] {"ZiggsQSpell2"},
                     EarlyEvade = new[] {EarlyObjects.Allies, EarlyObjects.Minions, EarlyObjects.AllyObjects},
-                    DisableFowDetection = true,
                 });
 
             Spells.Add(
@@ -4211,7 +4230,6 @@ namespace Evade
                     MissileSpellName = "ZiggsQSpell3",
                     ExtraMissileNames = new[] {"ZiggsQSpell3"},
                     EarlyEvade = new[] {EarlyObjects.Allies, EarlyObjects.Minions, EarlyObjects.AllyObjects},
-                    DisableFowDetection = true,
                 });
 
             Spells.Add(
@@ -4230,8 +4248,9 @@ namespace Evade
                     DangerValue = 2,
                     IsDangerous = false,
                     MissileSpellName = "ZiggsW",
-                    DisableFowDetection = true,
-                    CollisionObjects = new[] {CollisionObjectTypes.YasuoWall},
+                    ExtraDuration = 5500,
+                    DontCross = true,
+                    CollisionObjects = new[] { CollisionObjectTypes.YasuoWall },
                 });
 
             Spells.Add(
@@ -4250,7 +4269,6 @@ namespace Evade
                     DangerValue = 2,
                     IsDangerous = false,
                     MissileSpellName = "ZiggsE",
-                    DisableFowDetection = true,
                 });
 
             Spells.Add(
@@ -4260,16 +4278,17 @@ namespace Evade
                     SpellName = "ZiggsR",
                     Slot = SpellSlot.R,
                     Type = SkillShotType.SkillshotCircle,
-                    Delay = 0,
+                    Delay = 1500,
                     Range = 5300,
                     Radius = 500,
-                    MissileSpeed = int.MaxValue,
+                    MissileSpeed = 1500,
                     FixedRange = false,
                     AddHitbox = true,
                     DangerValue = 2,
                     IsDangerous = false,
+                    ExtraDuration = 3500,
+                    DontCross = true,
                     MissileSpellName = "ZiggsR",
-                    DisableFowDetection = true,
                 });
 
             #endregion Ziggs
