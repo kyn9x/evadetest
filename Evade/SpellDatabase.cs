@@ -4268,6 +4268,8 @@ namespace Evade
                     AddHitbox = true,
                     DangerValue = 2,
                     IsDangerous = false,
+                    ExtraDuration = 5500,
+                    DontCross = true,
                     MissileSpellName = "ZiggsE",
                 });
 
