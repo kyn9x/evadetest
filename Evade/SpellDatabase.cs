@@ -2215,7 +2215,7 @@ namespace Evade
                     SpellName = "LeonaZenithBlade",
                     Slot = SpellSlot.E,
                     Type = SkillShotType.SkillshotMissileLine,
-                    Delay = 350,
+                    Delay = 200,
                     Range = 975,
                     Radius = 70,
                     MissileSpeed = 2000,
@@ -2237,7 +2237,7 @@ namespace Evade
                     Type = SkillShotType.SkillshotCircle,
                     Delay = 625,
                     Range = 1200,
-                    Radius = 250,
+                    Radius = 300,
                     MissileSpeed = int.MaxValue,
                     FixedRange = false,
                     AddHitbox = true,
@@ -2260,7 +2260,7 @@ namespace Evade
                     Delay = 250,
                     Range = 825,
                     Radius = 75,
-                    MissileSpeed = 2200,
+                    MissileSpeed = 2250,
                     FixedRange = true,
                     AddHitbox = true,
                     DangerValue = 2,
@@ -2279,7 +2279,7 @@ namespace Evade
                     Delay = 250,
                     Range = 825,
                     Radius = 90,
-                    MissileSpeed = 2200,
+                    MissileSpeed = 2250,
                     FixedRange = true,
                     AddHitbox = true,
                     DangerValue = 2,
@@ -2307,7 +2307,7 @@ namespace Evade
                     CollisionObjects = new[] {CollisionObjectTypes.YasuoWall},
                 });
 
-            #endregion Lulu
+            #endregion Lissandra
 
             #region Lucian
 
@@ -2317,10 +2317,10 @@ namespace Evade
                     ChampionName = "Lucian",
                     SpellName = "LucianQ",
                     Slot = SpellSlot.Q,
-                    Type = SkillShotType.SkillshotMissileLine,
-                    Delay = 450,
+                    Type = SkillShotType.SkillshotLine,
+                    Delay = 350,
                     Range = 1140,
-                    Radius = 70,
+                    Radius = 65,
                     MissileSpeed = int.MaxValue,
                     FixedRange = true,
                     AddHitbox = true,
@@ -2381,7 +2381,7 @@ namespace Evade
                     Type = SkillShotType.SkillshotMissileLine,
                     Delay = 250,
                     Range = 950,
-                    Radius = 60,
+                    Radius = 80,
                     MissileSpeed = 1450,
                     FixedRange = true,
                     AddHitbox = true,
@@ -2400,7 +2400,7 @@ namespace Evade
                     Type = SkillShotType.SkillshotMissileLine,
                     Delay = 250,
                     Range = 950,
-                    Radius = 60,
+                    Radius = 80,
                     MissileSpeed = 1450,
                     FixedRange = true,
                     AddHitbox = true,
@@ -2608,10 +2608,10 @@ namespace Evade
                     DangerValue = 3,
                     IsDangerous = true,
                     MissileSpellName = "NautilusAnchorDragMissile",
-                    EarlyEvade = new[] {EarlyObjects.Allies, EarlyObjects.Minions, EarlyObjects.AllyObjects, EarlyObjects.Wall },
+                    EarlyEvade = new[] { EarlyObjects.Allies, EarlyObjects.Minions, EarlyObjects.AllyObjects, EarlyObjects.Wall },
                     CollisionObjects =
                         new[]
-                        {CollisionObjectTypes.Champions, CollisionObjectTypes.Minion, CollisionObjectTypes.YasuoWall},
+                        { CollisionObjectTypes.Champions, CollisionObjectTypes.Minion, CollisionObjectTypes.YasuoWall },
                     //walls?
                 });
 
@@ -4348,7 +4348,7 @@ namespace Evade
                     Type = SkillShotType.SkillshotMissileLine,
                     Delay = 250,
                     Range = 1150,
-                    Radius = 77,
+                    Radius = 70,
                     MissileSpeed = 1150,
                     FixedRange = true,
                     AddHitbox = true,
