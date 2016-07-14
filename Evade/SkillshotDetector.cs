@@ -26,7 +26,6 @@ using SharpDX;
 using SharpDX.Direct3D9;
 
 #endregion
-
 namespace Evade
 {
     internal static class SkillshotDetector
@@ -124,7 +123,7 @@ namespace Evade
             }
 
 
-            /*Console.WriteLine(
+            /* Console.WriteLine(
                     Utils.TickCount + " Projectile Created: " + missile.SData.Name + " distance: " +
                     missile.SData.CastRange + "Radius: " +
                     missile.SData.LineWidth + " Speed: " + missile.SData.MissileSpeed);  */

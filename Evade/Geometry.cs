@@ -26,7 +26,6 @@ using Color = System.Drawing.Color;
 using Path = System.Collections.Generic.List<ClipperLib.IntPoint>;
 using Paths = System.Collections.Generic.List<System.Collections.Generic.List<ClipperLib.IntPoint>>;
 using GamePath = System.Collections.Generic.List<SharpDX.Vector2>;
-
 #endregion
 
 namespace Evade

@@ -95,6 +95,7 @@ namespace Evade
             };
         }
 
+
         public static Vector2 GetCollisionPoint(Skillshot skillshot)
         {
             var collisions = new List<DetectedCollision>();

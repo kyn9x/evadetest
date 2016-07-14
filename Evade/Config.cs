@@ -26,6 +26,7 @@ using EloBuddy.SDK.Menu.Values;
 
 #endregion
 
+
 namespace Evade
 {
     internal static class Config
@@ -40,7 +41,7 @@ namespace Evade
         public const int PathFindingDistance2 = 35;
 
         public const int DiagonalEvadePointsCount = 7;
-        public const int DiagonalEvadePointsStep = 20;
+        public const int DiagonalEvadePointsStep = 5;
 
         public const int CrossingTimeOffset = 250;
 
@@ -58,13 +59,8 @@ namespace Evade
         public static void CreateMenu()
         {
             Menu = MainMenu.AddMenu("Evade", "evade");
-
-            if (Menu == null)
-            {
-                Chat.Print("LOAD FAILED", Color.Red);
-                Console.WriteLine("Evade:: LOAD FAILED");
-                throw new NullReferenceException("Menu NullReferenceException");
-            }
+            Menu.Add("Enabled", new KeyBind("Enabled", true, KeyBind.BindTypes.PressToggle, "K".ToCharArray()[0]));
+            Menu.Add("OnlyDangerous", new KeyBind("Dodge only dangerous", false, KeyBind.BindTypes.HoldActive)); //
 
             //Create the evade spells submenus.
             evadeSpells = Menu.AddSubMenu("Evade spells", "evadeSpells");
@@ -180,24 +176,19 @@ namespace Evade
             //drawings.AddItem(new MenuItem("EnabledColor", "Enabled spell color").SetValue(Color.White));
             //drawings.AddItem(new MenuItem("DisabledColor", "Disabled spell color").SetValue(Color.Red));
             //drawings.AddItem(new MenuItem("MissileColor", "Missile color").SetValue(Color.LimeGreen));
-            drawings.Add("Border", new Slider("Border Width", 2, 5, 1));
+            drawings.Add("Border", new Slider("Border Width", 1, 5, 1));
 
             drawings.Add("EnableDrawings", new CheckBox("Enabled"));
             drawings.Add("ShowEvadeStatus", new CheckBox("Draw Evade Status"));
-            
+
             misc = Menu.AddSubMenu("Misc", "Misc");
             misc.AddStringList("BlockSpells", "Block spells while evading", new[] { "No", "Only dangerous", "Always" }, 1);
             //misc.Add("BlockSpells", "Block spells while evading").SetValue(new StringList(new []{"No", "Only dangerous", "Always"}, 1)));
             misc.Add("DisableFow", new CheckBox("Disable FOW dodging(Recommend: Untick)", false));
-            misc.Add("ShowEvadeStatus", new CheckBox("Show Evade Status"));
             if (ObjectManager.Player.BaseSkinName == "Olaf")
             {
                 misc.Add("DisableEvadeForOlafR", new CheckBox("Automatic disable Evade when Olaf's ulti is active!"));
             }
-
-            Menu.Add("Enabled", new KeyBind("Enabled", true, KeyBind.BindTypes.PressToggle, "K".ToCharArray()[0]));
-
-            Menu.Add("OnlyDangerous", new KeyBind("Dodge only dangerous", false, KeyBind.BindTypes.HoldActive)); //
         }
     }
 }
