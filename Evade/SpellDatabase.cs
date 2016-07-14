@@ -4286,7 +4286,7 @@ namespace Evade
                     AddHitbox = true,
                     DangerValue = 2,
                     IsDangerous = false,
-                    ExtraDuration = 3500,
+                    ExtraDuration = 3300,
                     DontCross = true,
                     MissileSpellName = "ZiggsR",
                 });
