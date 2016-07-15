@@ -3964,7 +3964,7 @@ namespace Evade
             
             #region Vladimir
             
-            Spells.Add(
+            /*Spells.Add(
                 new SpellData
                 {
                     ChampionName = "Vladimir",
@@ -3982,7 +3982,7 @@ namespace Evade
                     MissileSpellName = "VladimirR",
                     ExtraDuration = 5500,
                     DontCross = true,
-                });
+                });*/
                 
             #endregion Vladimir
 
