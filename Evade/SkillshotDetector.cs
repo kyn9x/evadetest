@@ -26,6 +26,7 @@ using SharpDX;
 using SharpDX.Direct3D9;
 
 #endregion
+
 namespace Evade
 {
     internal static class SkillshotDetector

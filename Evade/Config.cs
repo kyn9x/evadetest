@@ -130,42 +130,21 @@ namespace Evade
             //DisabledColor = drawings.AddColor(new[] {"DCA", "DCR", "DCG", "DCB"}, "Disabled Spell Color", Color.Red);
             //MissileColor = drawings.AddColor(new[] { "MCA", "MCR", "MCG", "MCB" }, "Missile Color", Color.Red);
 
-            drawings.AddLabel("Enabled Draw Color");
-            drawings.Add("EnabledDrawA", new Slider("A", 255, 1, 255));
-            drawings.Add("EnabledDrawR", new Slider("R", 255, 1, 255));
-            drawings.Add("EnabledDrawG", new Slider("G", 255, 1, 255));
-            drawings.Add("EnabledDrawB", new Slider("B", 255, 1, 255));
+            drawings.AddLabel("Enabled Draw Color = White");
 
-            EnabledColor = Color.FromArgb(drawings["EnabledDrawA"].Cast<Slider>().CurrentValue,
-                drawings["EnabledDrawR"].Cast<Slider>().CurrentValue,
-                drawings["EnabledDrawG"].Cast<Slider>().CurrentValue,
-                drawings["EnabledDrawB"].Cast<Slider>().CurrentValue);
+            EnabledColor = Color.White;
 
             drawings.AddSeparator(5);
 
-            drawings.AddLabel("Disabled Draw Color");
-            drawings.Add("DisabledDrawA", new Slider("A", 255, 1, 255));
-            drawings.Add("DisabledDrawR", new Slider("R", 255, 1, 255));
-            drawings.Add("DisabledDrawG", new Slider("G", 255, 1, 255));
-            drawings.Add("DisabledDrawB", new Slider("B", 255, 1, 255));
+            drawings.AddLabel("Disabled Draw Color = Red");
 
-            DisabledColor = Color.FromArgb(drawings["DisabledDrawA"].Cast<Slider>().CurrentValue,
-                drawings["DisabledDrawR"].Cast<Slider>().CurrentValue,
-                drawings["DisabledDrawG"].Cast<Slider>().CurrentValue,
-                drawings["DisabledDrawB"].Cast<Slider>().CurrentValue);
+            DisabledColor = Color.Red;
 
             drawings.AddSeparator(5);
 
-            drawings.AddLabel("Missile Draw Color");
-            drawings.Add("MissileDrawA", new Slider("A", 255, 1, 255));
-            drawings.Add("MissileDrawR", new Slider("R", 255, 1, 255));
-            drawings.Add("MissileDrawG", new Slider("G", 255, 1, 255));
-            drawings.Add("MissileDrawB", new Slider("B", 255, 1, 255));
+            drawings.AddLabel("Missile Draw Color = LimeGreen");
 
-            MissileColor = Color.FromArgb(drawings["MissileDrawA"].Cast<Slider>().CurrentValue,
-                drawings["MissileDrawR"].Cast<Slider>().CurrentValue,
-                drawings["MissileDrawG"].Cast<Slider>().CurrentValue,
-                drawings["MissileDrawB"].Cast<Slider>().CurrentValue);
+            MissileColor = Color.LimeGreen;
 
             drawings.AddSeparator(5);
 
@@ -182,10 +161,10 @@ namespace Evade
             drawings.Add("ShowEvadeStatus", new CheckBox("Draw Evade Status"));
 
             misc = Menu.AddSubMenu("Misc", "Misc");
-            misc.AddStringList("BlockSpells", "Block spells while evading", new[] { "No", "Only dangerous", "Always" }, 1);
-            //misc.Add("BlockSpells", "Block spells while evading").SetValue(new StringList(new []{"No", "Only dangerous", "Always"}, 1)));
-            misc.Add("DisableFow", new CheckBox("Disable FOW dodging(Recommend: Untick)", false));
-            if (ObjectManager.Player.BaseSkinName == "Olaf")
+            misc.Add("BlockSpells", new ComboBox("Block spells while evading", 2, "No", "Only dangerous", "Always"));
+            misc.Add("DisableFow", new CheckBox("Disable fog of war dodging", false));
+            misc.Add("ShowEvadeStatus", new CheckBox("Show Evade Status", false));
+            if (ObjectManager.Player.CharData.BaseSkinName == "Olaf")
             {
                 misc.Add("DisableEvadeForOlafR", new CheckBox("Automatic disable Evade when Olaf's ulti is active!"));
             }

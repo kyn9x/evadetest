@@ -23,7 +23,6 @@ using EloBuddy.SDK;
 
 #endregion
 
-
 namespace Evade
 {
     internal class EvadeSpellDatabase

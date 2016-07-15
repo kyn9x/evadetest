@@ -137,7 +137,7 @@ namespace Evade
             //Initialze the collision
             Collision.Init();
 
-            Chat.Print("Evade By Kyn", Color.Red);
+            Chat.Print("Evade By Kyn", Color.LimeGreen);
             Chat.Print("Update 6.14: 14/07/2016", Color.Green);
             Console.WriteLine("Evade:: Evade By Kyn");
             Console.WriteLine("Evade::Update 6.14: 14/07/2016");
@@ -740,21 +740,6 @@ namespace Evade
                 return;
             }
 
-            if (args.Order == GameObjectOrder.MoveTo || args.Order == GameObjectOrder.AttackTo)
-            {
-                EvadeToPoint.X = args.TargetPosition.X;
-                EvadeToPoint.Y = args.TargetPosition.Y;
-            }
-            else
-            {
-                EvadeToPoint = Vector2.Zero;
-            }
-
-            if (DetectedSkillshots.Count == 0)
-            {
-                ForcePathFollowing = false;
-            }
-
             //Don't block the movement packets if cant find an evade point.
             if (NoSolutionFound)
             {
@@ -782,6 +767,21 @@ namespace Evade
             {
                 return;
             }
+
+            if (args.Order == GameObjectOrder.MoveTo || args.Order == GameObjectOrder.AttackTo)
+            {
+                EvadeToPoint.X = args.TargetPosition.X;
+                EvadeToPoint.Y = args.TargetPosition.Y;
+                Keepfollowing = false;
+                FollowPath = false;
+            }
+            else
+            {
+                EvadeToPoint.X = 0;
+                EvadeToPoint.Y = 0;
+            }
+
+            
 
             var myPath =
                 ObjectManager.Player.GetPath(
@@ -841,13 +841,16 @@ namespace Evade
                 {
                     if (ObjectManager.Player.Distance(safePath.Intersection.Point) > 75)
                     {
-                        ForcePathFollowing = true;
-                        //ObjectManager.Player.SendMovePacket(safePath.Intersection.Point);
+                        ObjectManager.Player.SendMovePacket(safePath.Intersection.Point);
                     }
                 }
 
                 ForcePathFollowing = true;
                 args.Process = false;
+            }
+            else if(safePath.IsSafe && args.Order != GameObjectOrder.AttackUnit)
+                 {
+                FollowPath = false;
             }
             
             //AutoAttacks.
