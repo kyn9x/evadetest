@@ -107,10 +107,7 @@ namespace Evade
 
         private static void Main(string[] args)
         {
-            if (Game.Mode == GameMode.Running)
-            {
-                Game_OnGameStart(new EventArgs());
-            }
+            Loading.OnLoadingComplete += Game_OnGameStart;
         }
 
         
