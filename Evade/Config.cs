@@ -131,26 +131,23 @@ namespace Evade
             //MissileColor = drawings.AddColor(new[] { "MCA", "MCR", "MCG", "MCB" }, "Missile Color", Color.Red);
 
             drawings.AddLabel("Enabled Draw Color = White");
+            drawings.Add("EnabledDraw", new CheckBox("Draw Enabled"));
 
             EnabledColor = Color.White;
 
-            drawings.AddSeparator(5);
-
             drawings.AddLabel("Disabled Draw Color = Red");
+            drawings.Add("DisabledDraw", new CheckBox("Draw Disabled"));
 
             DisabledColor = Color.Red;
 
-            drawings.AddSeparator(5);
-
             drawings.AddLabel("Missile Draw Color = LimeGreen");
+            drawings.Add("MissileDraw", new CheckBox("Draw Missile"));
 
             MissileColor = Color.LimeGreen;
 
-            drawings.AddSeparator(5);
-
-            drawings.Add("EnabledDraw", new CheckBox("Draw Enabled"));
-            drawings.Add("DisabledDraw", new CheckBox("Draw Disabled"));
-            drawings.Add("MissileDraw", new CheckBox("Draw Missile"));
+            
+            
+            
 
             //drawings.AddItem(new MenuItem("EnabledColor", "Enabled spell color").SetValue(Color.White));
             //drawings.AddItem(new MenuItem("DisabledColor", "Disabled spell color").SetValue(Color.Red));

@@ -227,10 +227,10 @@ namespace Evade
             int startT,
             Vector2 start,
             Vector2 end,
-            
             Obj_AI_Base unit)
         {
-            var skillshot = new Skillshot(detectionType, spellData, startT, start, end, unit);
+            var skillshot = new Skillshot(detectionType, spellData, startT, start, end, unit)
+            { };
 
             if (OnDetectSkillshot != null)
             {
@@ -313,12 +313,6 @@ namespace Evade
 
             var endPos = args.End.To2D();
 
-            if (spellData.SpellName == "LucianQ" && args.Target != null &&
-                args.Target.NetworkId == ObjectManager.Player.NetworkId)
-            {
-                return;
-            }
-
             //Calculate the real end Point:
             var direction = (endPos - startPos).Normalized();
             if (startPos.Distance(endPos) > spellData.Range || spellData.FixedRange)
@@ -348,7 +342,7 @@ namespace Evade
             {
                 var packet = new GamePacket(args.PacketData);
 
-                packet.SetHeader(new PacketHeader(packet));
+                packet.Position = 1;
 
                 packet.Read<float>(); //Missile network ID
 

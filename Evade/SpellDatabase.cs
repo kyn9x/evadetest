@@ -2318,7 +2318,7 @@ namespace Evade
                     SpellName = "LucianQ",
                     Slot = SpellSlot.Q,
                     Type = SkillShotType.SkillshotLine,
-                    Delay = 350,
+                    Delay = 450,
                     Range = 1140,
                     Radius = 65,
                     MissileSpeed = int.MaxValue,
@@ -2363,7 +2363,7 @@ namespace Evade
                     DangerValue = 2,
                     IsDangerous = false,
                     MissileSpellName = "lucianrmissileoffhand",
-                    ExtraMissileNames = new[] {"lucianrmissile"},
+                    ExtraMissileNames = new[] { "lucianrmissile" },
                     DontCheckForDuplicates = true,
                     DisabledByDefault = true,
                 });
@@ -3964,7 +3964,7 @@ namespace Evade
             
             #region Vladimir
             
-            /*Spells.Add(
+            Spells.Add(
                 new SpellData
                 {
                     ChampionName = "Vladimir",
@@ -3982,7 +3982,7 @@ namespace Evade
                     MissileSpellName = "VladimirR",
                     ExtraDuration = 5500,
                     DontCross = true,
-                });*/
+                });
                 
             #endregion Vladimir
 

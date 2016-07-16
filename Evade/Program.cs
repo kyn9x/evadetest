@@ -137,10 +137,10 @@ namespace Evade
             //Initialze the collision
             Collision.Init();
 
-            Chat.Print("Evade By Kyn", Color.LimeGreen);
-            Chat.Print("Update 6.14: 14/07/2016", Color.Green);
+            Chat.Print("Evade By Kyn", Color.LightPink);
+            Chat.Print("Update 6.14: 16/07/2016", Color.Green);
             Console.WriteLine("Evade:: Evade By Kyn");
-            Console.WriteLine("Evade::Update 6.14: 14/07/2016");
+            Console.WriteLine("Evade::Update 6.14: 16/07/2016");
             
             if (Config.PrintSpellData)
             {
@@ -849,10 +849,9 @@ namespace Evade
                 args.Process = false;
             }
             else if(safePath.IsSafe && args.Order != GameObjectOrder.AttackUnit)
-            {
+                 {
                 FollowPath = false;
             }
-                 
             
             //AutoAttacks.
             if (!safePath.IsSafe && args.Order == GameObjectOrder.AttackUnit)
