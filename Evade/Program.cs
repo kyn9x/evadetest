@@ -309,7 +309,6 @@ namespace Evade
                                 positions.Add(minion.ServerPosition.To2D());
                             }
                         }
-                        Console.WriteLine(positions.Count + " positions to check");
 
                         foreach (var position in positions)
                         {
@@ -636,7 +635,7 @@ namespace Evade
                 if (!safeResult.IsSafe)
                 {
                     //Search for an evade point:
-                    TryToEvade(safeResult.SkillshotList, EvadeToPoint.IsValid() ? EvadeToPoint : Game.CursorPos.To2D());
+                    TryToEvade(safeResult.SkillshotList, EvadeToPoint.IsValid() ? EvadeToPoint : Game.CursorPos.To2D(),(46));
                 }
 
                 /*FOLLOWPATH*/
