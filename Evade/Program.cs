@@ -635,7 +635,7 @@ namespace Evade
                 if (!safeResult.IsSafe)
                 {
                     //Search for an evade point:
-                    TryToEvade(safeResult.SkillshotList, EvadeToPoint.IsValid() ? EvadeToPoint : Game.CursorPos.To2D(),(46));
+                    Core.DelayAction(() => TryToEvade(safeResult.SkillshotList, EvadeToPoint.IsValid() ? EvadeToPoint : Game.CursorPos.To2D()), (46));
                 }
 
                 /*FOLLOWPATH*/
