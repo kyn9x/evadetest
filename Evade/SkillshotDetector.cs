@@ -50,10 +50,10 @@ namespace Evade
 
         private static void GameObject_OnCreate(GameObject sender, EventArgs args)
         {
-            /*if (ObjectManager.Player.Distance(sender.Position) < 1000)
+            if (ObjectManager.Player.Distance(sender.Position) < 1000)
             {
                 Console.WriteLine(Utils.TickCount + " " + sender.Name + " " + sender.IsAlly + " " + sender.Type);
-            }*/
+            }
         }
 
 
