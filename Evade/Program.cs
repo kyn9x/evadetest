@@ -854,7 +854,6 @@ namespace Evade
                 {
                     if (ObjectManager.Player.Distance(safePath.Intersection.Point) > 75)
                     {
-                        ForcePathFollowing = true;
                         ObjectManager.Player.SendMovePacket(safePath.Intersection.Point);
                     }
                 }
