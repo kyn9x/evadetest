@@ -458,7 +458,7 @@ namespace Evade
                     Radius = 70,
                     MissileSpeed = 1800,
                     FixedRange = true,
-                    AddHitbox = false,
+                    AddHitbox = true,
                     DangerValue = 4,
                     IsDangerous = true,
                     MissileSpellName = "RocketGrabMissile",
