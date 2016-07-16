@@ -658,6 +658,10 @@ namespace Evade
                             }
                             return;
                         }
+                        else if(safePath.IsSafe && args.Order != GameObjectOrder.AttackUnit)
+                        {
+                            FollowPath = false;
+                        }
 
 
                         var path2 = ObjectManager.Player.GetPath(EvadeToPoint.To3D()).To2DList();
@@ -757,6 +761,8 @@ namespace Evade
             {
                 EvadeToPoint.X = args.TargetPosition.X;
                 EvadeToPoint.Y = args.TargetPosition.Y;
+                Keepfollowing = false;
+                FollowPath = false;
             }
             else
             {
