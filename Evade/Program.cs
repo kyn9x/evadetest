@@ -862,6 +862,11 @@ namespace Evade
                 args.Process = false;
             }
             
+            else if(safePath.IsSafe && args.Order != GameObjectOrder.AttackUnit)
+            {
+                FollowPath = false;
+            }
+            
             //AutoAttacks.
             if (!safePath.IsSafe && args.Order == GameObjectOrder.AttackUnit)
             {
