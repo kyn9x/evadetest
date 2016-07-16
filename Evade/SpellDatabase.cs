@@ -456,7 +456,7 @@ namespace Evade
                     Delay = 250,
                     Range = 1100,
                     Radius = 70,
-                    MissileSpeed = 1875,
+                    MissileSpeed = 1800,
                     FixedRange = true,
                     AddHitbox = true,
                     DangerValue = 4,
@@ -2731,7 +2731,7 @@ namespace Evade
                 new SpellData
                 {
                     ChampionName = "Orianna",
-                    SpellName = "OrianaDissonanceCommand-",
+                    SpellName = "OrianaDissonanceCommand",
                     Slot = SpellSlot.W,
                     Type = SkillShotType.SkillshotCircle,
                     Delay = 250,
@@ -2742,9 +2742,8 @@ namespace Evade
                     AddHitbox = true,
                     DangerValue = 2,
                     IsDangerous = false,
-                    MissileSpellName = "OrianaDissonanceCommand-",
+                    MissileSpellName = "OrianaDissonanceCommand",
                     FromObject = "yomu_ring_",
-                    SourceObjectName = "w_dissonance_" //Orianna_Base_W_Dissonance_ball_green.troy & Orianna_Base_W_Dissonance_cas_green.troy
                 });
 
             Spells.Add(
@@ -2770,7 +2769,7 @@ namespace Evade
                 new SpellData
                 {
                     ChampionName = "Orianna",
-                    SpellName = "OrianaDetonateCommand-",
+                    SpellName = "OrianaDetonateCommand",
                     Slot = SpellSlot.R,
                     Type = SkillShotType.SkillshotCircle,
                     Delay = 700,
@@ -2781,9 +2780,8 @@ namespace Evade
                     AddHitbox = true,
                     DangerValue = 5,
                     IsDangerous = true,
-                    MissileSpellName = "OrianaDetonateCommand-",
+                    MissileSpellName = "OrianaDetonateCommand",
                     FromObject = "yomu_ring_",
-                    SourceObjectName = "r_vacuumindicator", //Orianna_Base_R_VacuumIndicator.troy
                 });
 
             #endregion Orianna

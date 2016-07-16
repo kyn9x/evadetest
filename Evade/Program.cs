@@ -163,9 +163,7 @@ namespace Evade
             }
 
             if (Config.TestOnAllies)
-            {
-                Benchmarking.Benchmark.Initialize();
-            }
+            {}
         }
         private static void DetectedSkillshots_OnAdd(object sender, EventArgs e)
         {
@@ -272,17 +270,6 @@ namespace Evade
                         return;
                     }
 
-                    if (skillshot.SpellData.Centered)
-                    {
-                        var start = skillshot.Start - skillshot.Direction * skillshot.SpellData.Range;
-                        var end = skillshot.Start + skillshot.Direction * skillshot.SpellData.Range;
-                        var skillshotToAdd = new Skillshot(
-                            skillshot.DetectionType, skillshot.SpellData, skillshot.StartTick, start, end,
-                            skillshot.Unit);
-                        DetectedSkillshots.Add(skillshotToAdd);
-                        return;
-                    }
-
                     if (skillshot.SpellData.SpellName == "TaricE") { }
 
                     if (skillshot.SpellData.SpellName == "SyndraE" || skillshot.SpellData.SpellName == "syndrae5")
@@ -309,7 +296,7 @@ namespace Evade
                                 positions.Add(minion.ServerPosition.To2D());
                             }
                         }
-
+                        Console.WriteLine(positions.Count + " positions to check");
                         foreach (var position in positions)
                         {
                             var v = position - skillshot.Unit.ServerPosition.To2D();
@@ -556,7 +543,7 @@ namespace Evade
                 return;
             }
 
-            
+            /*
             //Shield allies.
             foreach (var ally in ObjectManager.Get<AIHeroClient>())
             {
@@ -591,7 +578,7 @@ namespace Evade
                     }
                 }
             }
-            
+            */
             //Spell Shielded
             if (ObjectManager.Player.MagicShield > 0)
             {
@@ -712,7 +699,7 @@ namespace Evade
 
                 if (Evading)
                 {
-                    var blockLevel = Config.misc["BlockSpells"].Cast<ComboBox>().CurrentValue;
+                    var blockLevel = Config.misc["BlockSpells"].Cast<Slider>().CurrentValue;
 
                     if (blockLevel == 0)
                     {
@@ -753,23 +740,6 @@ namespace Evade
                 return;
             }
 
-            if (args.Order == GameObjectOrder.MoveTo || args.Order == GameObjectOrder.AttackTo)
-            {
-                EvadeToPoint.X = args.TargetPosition.X;
-                EvadeToPoint.Y = args.TargetPosition.Y;
-                Keepfollowing = false;
-                FollowPath = false;
-            }
-            else
-            {
-                EvadeToPoint = Vector2.Zero;
-            }
-
-            if (DetectedSkillshots.Count == 0)
-            {
-                ForcePathFollowing = false;
-            }
-
             //Don't block the movement packets if cant find an evade point.
             if (NoSolutionFound)
             {
@@ -797,6 +767,21 @@ namespace Evade
             {
                 return;
             }
+
+            if (args.Order == GameObjectOrder.MoveTo || args.Order == GameObjectOrder.AttackTo)
+            {
+                EvadeToPoint.X = args.TargetPosition.X;
+                EvadeToPoint.Y = args.TargetPosition.Y;
+                Keepfollowing = false;
+                FollowPath = false;
+            }
+            else
+            {
+                EvadeToPoint.X = 0;
+                EvadeToPoint.Y = 0;
+            }
+
+            
 
             var myPath =
                 ObjectManager.Player.GetPath(
@@ -863,9 +848,8 @@ namespace Evade
                 ForcePathFollowing = true;
                 args.Process = false;
             }
-            
             else if(safePath.IsSafe && args.Order != GameObjectOrder.AttackUnit)
-            {
+                 {
                 FollowPath = false;
             }
             
