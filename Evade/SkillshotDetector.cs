@@ -50,10 +50,20 @@ namespace Evade
 
         private static void GameObject_OnCreate(GameObject sender, EventArgs args)
         {
-            /*if (ObjectManager.Player.Distance(sender.Position) < 1000)
+            if (ObjectManager.Player.Distance(sender.Position) < 1000)
             {
                 Console.WriteLine(Utils.TickCount + " " + sender.Name + " " + sender.IsAlly + " " + sender.Type);
-            }*/
+            }
+            var spellData = SpellDatabase.GetBySourceObjectName(sender.Name);
+            
+            if (spellData == null)
+            {
+                return;
+            }
+            if (Config.skillShots["Enabled" + spellData.MenuItemName] == null)
+            {
+                return;
+            }
         }
 
 
@@ -124,7 +134,7 @@ namespace Evade
             }
 
 
-            /* Console.WriteLine(
+            /*Console.WriteLine(
                     Utils.TickCount + " Projectile Created: " + missile.SData.Name + " distance: " +
                     missile.SData.CastRange + "Radius: " +
                     missile.SData.LineWidth + " Speed: " + missile.SData.MissileSpeed);  */
@@ -227,10 +237,10 @@ namespace Evade
             int startT,
             Vector2 start,
             Vector2 end,
+            
             Obj_AI_Base unit)
         {
-            var skillshot = new Skillshot(detectionType, spellData, startT, start, end, unit)
-            { };
+            var skillshot = new Skillshot(detectionType, spellData, startT, start, end, unit);
 
             if (OnDetectSkillshot != null)
             {
@@ -342,7 +352,7 @@ namespace Evade
             {
                 var packet = new GamePacket(args.PacketData);
 
-                packet.Position = 1;
+                packet.SetHeader(new PacketHeader(packet));
 
                 packet.Read<float>(); //Missile network ID
 

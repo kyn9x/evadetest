@@ -26,7 +26,6 @@ using EloBuddy.SDK.Menu.Values;
 
 #endregion
 
-
 namespace Evade
 {
     internal static class Config
@@ -61,6 +60,13 @@ namespace Evade
             Menu = MainMenu.AddMenu("Evade", "evade");
             Menu.Add("Enabled", new KeyBind("Enabled", true, KeyBind.BindTypes.PressToggle, "K".ToCharArray()[0]));
             Menu.Add("OnlyDangerous", new KeyBind("Dodge only dangerous", false, KeyBind.BindTypes.HoldActive)); //
+
+            if (Menu == null)
+            {
+                Chat.Print("LOAD FAILED", Color.Red);
+                Console.WriteLine("Evade:: LOAD FAILED");
+                throw new NullReferenceException("Menu NullReferenceException");
+            }
 
             //Create the evade spells submenus.
             evadeSpells = Menu.AddSubMenu("Evade spells", "evadeSpells");
@@ -126,24 +132,18 @@ namespace Evade
             //TODO add mode.
 
             drawings = Menu.AddSubMenu("Drawings", "Drawings");
-            //EnabledColor = drawings.AddColor(new[] { "ECA", "ECR", "ECG", "ECB"}, "Enabled Spell Color", Color.White);
-            //DisabledColor = drawings.AddColor(new[] {"DCA", "DCR", "DCG", "DCB"}, "Disabled Spell Color", Color.Red);
-            //MissileColor = drawings.AddColor(new[] { "MCA", "MCR", "MCG", "MCB" }, "Missile Color", Color.Red);
-
+            
             drawings.AddLabel("Enabled Draw Color = White");
             drawings.Add("EnabledDraw", new CheckBox("Draw Enabled"));
-
             EnabledColor = Color.White;
 
             drawings.AddLabel("Disabled Draw Color = Red");
             drawings.Add("DisabledDraw", new CheckBox("Draw Disabled"));
-
             DisabledColor = Color.Red;
 
-            drawings.AddLabel("Missile Draw Color = LimeGreen");
+            drawings.AddLabel("Missile Draw Color= Green");
             drawings.Add("MissileDraw", new CheckBox("Draw Missile"));
-
-            MissileColor = Color.LimeGreen;
+            MissileColor = Color.Green;
 
             
             
@@ -156,12 +156,13 @@ namespace Evade
 
             drawings.Add("EnableDrawings", new CheckBox("Enabled"));
             drawings.Add("ShowEvadeStatus", new CheckBox("Draw Evade Status"));
-
+            
             misc = Menu.AddSubMenu("Misc", "Misc");
             misc.Add("BlockSpells", new ComboBox("Block spells while evading", 2, "No", "Only dangerous", "Always"));
+            //misc.Add("BlockSpells", "Block spells while evading").SetValue(new StringList(new []{"No", "Only dangerous", "Always"}, 1)));
             misc.Add("DisableFow", new CheckBox("Disable fog of war dodging", false));
             misc.Add("ShowEvadeStatus", new CheckBox("Show Evade Status", false));
-            if (ObjectManager.Player.CharData.BaseSkinName == "Olaf")
+            if (ObjectManager.Player.BaseSkinName == "Olaf")
             {
                 misc.Add("DisableEvadeForOlafR", new CheckBox("Automatic disable Evade when Olaf's ulti is active!"));
             }
