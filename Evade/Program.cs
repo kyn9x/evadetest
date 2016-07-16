@@ -635,7 +635,7 @@ namespace Evade
                 if (!safeResult.IsSafe)
                 {
                     //Search for an evade point:
-                    Core.DelayAction(() => TryToEvade(safeResult.SkillshotList, EvadeToPoint.IsValid() ? EvadeToPoint : Game.CursorPos.To2D()), (46));
+                    TryToEvade(safeResult.SkillshotList, EvadeToPoint.IsValid() ? EvadeToPoint : Game.CursorPos.To2D());
                 }
 
                 /*FOLLOWPATH*/
@@ -855,7 +855,7 @@ namespace Evade
                     if (ObjectManager.Player.Distance(safePath.Intersection.Point) > 75)
                     {
                         ForcePathFollowing = true;
-                        //ObjectManager.Player.SendMovePacket(safePath.Intersection.Point);
+                        ObjectManager.Player.SendMovePacket(safePath.Intersection.Point);
                     }
                 }
 
