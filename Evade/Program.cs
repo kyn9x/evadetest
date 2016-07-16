@@ -309,6 +309,7 @@ namespace Evade
                                 positions.Add(minion.ServerPosition.To2D());
                             }
                         }
+                        Console.WriteLine(positions.Count + " positions to check");
 
                         foreach (var position in positions)
                         {
