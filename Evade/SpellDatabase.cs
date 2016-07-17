@@ -2320,7 +2320,7 @@ namespace Evade
                     SpellName = "LucianQ",
                     Slot = SpellSlot.Q,
                     Type = SkillShotType.SkillshotMissileLine,
-                    Delay = 450,
+                    Delay = 350,
                     Range = 1140,
                     Radius = 70,
                     MissileSpeed = int.MaxValue,
