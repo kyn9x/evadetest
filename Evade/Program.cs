@@ -45,6 +45,8 @@ namespace Evade
         public static bool NoSolutionFound = false;
 
         public static Vector2 EvadeToPoint = new Vector2();
+        
+        private static bool _followPath = false;
 
         public static int LastWardJumpAttempt = 0;
 
