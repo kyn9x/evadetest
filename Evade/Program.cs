@@ -46,8 +46,6 @@ namespace Evade
 
         public static Vector2 EvadeToPoint = new Vector2();
 
-        private static bool _followPath = false;
-
         public static int LastWardJumpAttempt = 0;
 
         public static Vector2 PreviousTickPosition = new Vector2();
