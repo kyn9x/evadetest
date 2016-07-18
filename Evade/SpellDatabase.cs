@@ -456,13 +456,12 @@ namespace Evade
                     Delay = 250,
                     Range = 1100,
                     Radius = 70,
-                    MissileSpeed = 1850,
+                    MissileSpeed = 1900,
                     FixedRange = true,
                     AddHitbox = true,
                     DangerValue = 4,
                     IsDangerous = true,
                     MissileSpellName = "RocketGrabMissile",
-                    EarlyEvade = new[] { EarlyObjects.Allies, EarlyObjects.Minions, EarlyObjects.AllyObjects },
                     CollisionObjects =
                         new[]
                         { CollisionObjectTypes.Champions, CollisionObjectTypes.Minion, CollisionObjectTypes.YasuoWall },
