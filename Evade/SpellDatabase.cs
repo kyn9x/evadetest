@@ -2650,7 +2650,7 @@ namespace Evade
                     SpellName = "JavelinToss",
                     Slot = SpellSlot.Q,
                     Type = SkillShotType.SkillshotMissileLine,
-                    Delay = 250,
+                    Delay = 125,
                     Range = 1500,
                     Radius = 40,
                     MissileSpeed = 1300,
@@ -2661,7 +2661,7 @@ namespace Evade
                     MissileSpellName = "JavelinToss",
                     CollisionObjects =
                         new[]
-                        {CollisionObjectTypes.Champions, CollisionObjectTypes.Minion, CollisionObjectTypes.YasuoWall},
+                        { CollisionObjectTypes.Champions, CollisionObjectTypes.Minion, CollisionObjectTypes.YasuoWall },
                 });
 
             #endregion Nidalee
