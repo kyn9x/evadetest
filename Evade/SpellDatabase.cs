@@ -210,7 +210,7 @@ namespace Evade
                     ChampionName = "Amumu",
                     SpellName = "BandageToss",
                     Slot = SpellSlot.Q,
-                    Type = SkillShotType.SkillshotMissileLine,
+                    Type = SkillShotType.SkillshotLine,
                     Delay = 245,
                     Range = 1100,
                     Radius = 90,
@@ -219,7 +219,8 @@ namespace Evade
                     AddHitbox = true,
                     DangerValue = 3,
                     IsDangerous = true,
-                    MissileSpellName = "BandageTossMissile",
+                    MissileSpellName = "BandageToss",
+                    TakeClosestPath = true,
                     EarlyEvade = new[] { EarlyObjects.Allies, EarlyObjects.Minions, EarlyObjects.AllyObjects },
                     CollisionObjects =
                         new[]
@@ -452,17 +453,17 @@ namespace Evade
                     ChampionName = "Blitzcrank",
                     SpellName = "RocketGrab",
                     Slot = SpellSlot.Q,
-                    Type = SkillShotType.SkillshotMissileLine,
+                    Type = SkillShotType.SkillshotLine,
                     Delay = 250,
-                    Range = 1050,
+                    Range = 1100,
                     Radius = 70,
                     MissileSpeed = 1800,
                     FixedRange = true,
                     AddHitbox = true,
                     DangerValue = 4,
                     IsDangerous = true,
-                    TakeClosestPath = true,
                     MissileSpellName = "RocketGrab",
+                    TakeClosestPath = true,
                     EarlyEvade = new[] { EarlyObjects.Allies, EarlyObjects.Minions, EarlyObjects.AllyObjects },
                     CollisionObjects =
                         new[]
@@ -586,7 +587,7 @@ namespace Evade
                     ChampionName = "Caitlyn",
                     SpellName = "CaitlynPiltoverPeacemaker",
                     Slot = SpellSlot.Q,
-                    Type = SkillShotType.SkillshotMissileLine,
+                    Type = SkillShotType.SkillshotLine,
                     Delay = 625,
                     Range = 1300,
                     Radius = 90,
@@ -596,7 +597,7 @@ namespace Evade
                     DangerValue = 2,
                     IsDangerous = false,
                     MissileSpellName = "CaitlynPiltoverPeacemaker",
-                    CollisionObjects = new[] {CollisionObjectTypes.YasuoWall},
+                    CollisionObjects = new[] { CollisionObjectTypes.YasuoWall },
                 });
 
             Spells.Add(
@@ -885,7 +886,7 @@ namespace Evade
                     ChampionName = "DrMundo",
                     SpellName = "InfectedCleaverMissileCast",
                     Slot = SpellSlot.Q,
-                    Type = SkillShotType.SkillshotMissileLine,
+                    Type = SkillShotType.SkillshotLine,
                     Delay = 250,
                     Range = 1050,
                     Radius = 60,
@@ -895,6 +896,7 @@ namespace Evade
                     DangerValue = 3,
                     IsDangerous = false,
                     MissileSpellName = "InfectedCleaverMissileCast",
+                    TakeClosestPath = true,
                     EarlyEvade = new[] { EarlyObjects.Allies, EarlyObjects.Minions, EarlyObjects.AllyObjects },
                     CollisionObjects =
                         new[]
@@ -1083,7 +1085,7 @@ namespace Evade
                     ChampionName = "Ezreal",
                     SpellName = "EzrealMysticShot",
                     Slot = SpellSlot.Q,
-                    Type = SkillShotType.SkillshotMissileLine,
+                    Type = SkillShotType.SkillshotLine,
                     Delay = 250,
                     Range = 1200,
                     Radius = 60,
@@ -1093,10 +1095,10 @@ namespace Evade
                     DangerValue = 2,
                     IsDangerous = false,
                     MissileSpellName = "EzrealMysticShotMissile",
-                    ExtraMissileNames = new[] {"EzrealMysticShotPulseMissile"},
+                    ExtraMissileNames = new[] { "EzrealMysticShotPulseMissile" },
                     CollisionObjects =
                         new[]
-                        {CollisionObjectTypes.Champions, CollisionObjectTypes.Minion, CollisionObjectTypes.YasuoWall},
+                        { CollisionObjectTypes.Champions, CollisionObjectTypes.Minion, CollisionObjectTypes.YasuoWall },
                     Id = 229,
                 });
 
@@ -1106,7 +1108,7 @@ namespace Evade
                     ChampionName = "Ezreal",
                     SpellName = "EzrealEssenceFlux",
                     Slot = SpellSlot.W,
-                    Type = SkillShotType.SkillshotMissileLine,
+                    Type = SkillShotType.SkillshotLine,
                     Delay = 250,
                     Range = 1050,
                     Radius = 80,
@@ -1115,8 +1117,8 @@ namespace Evade
                     AddHitbox = true,
                     DangerValue = 2,
                     IsDangerous = false,
-                    MissileSpellName = "EzrealEssenceFluxMissile",
-                    CollisionObjects = new[] {CollisionObjectTypes.YasuoWall},
+                    MissileSpellName = "EzrealEssenceFlux",
+                    CollisionObjects = new[] { CollisionObjectTypes.YasuoWall },
                 });
 
             Spells.Add(
@@ -1125,7 +1127,7 @@ namespace Evade
                     ChampionName = "Ezreal",
                     SpellName = "EzrealTrueshotBarrage",
                     Slot = SpellSlot.R,
-                    Type = SkillShotType.SkillshotMissileLine,
+                    Type = SkillShotType.SkillshotLine,
                     Delay = 1000,
                     Range = 20000,
                     Radius = 160,
@@ -1135,7 +1137,7 @@ namespace Evade
                     DangerValue = 3,
                     IsDangerous = true,
                     MissileSpellName = "EzrealTrueshotBarrage",
-                    CollisionObjects = new[] {CollisionObjectTypes.YasuoWall},
+                    CollisionObjects = new[] { CollisionObjectTypes.YasuoWall },
                     Id = 245,
                 });
 
@@ -1182,8 +1184,8 @@ namespace Evade
                     DangerValue = 5,
                     IsDangerous = true,
                     MissileSpellName = "FizzMarinerDoomMissile",
-                    EarlyEvade = new[] {EarlyObjects.Allies},
-                    CollisionObjects = new[] {CollisionObjectTypes.Champions, CollisionObjectTypes.YasuoWall},
+                    EarlyEvade = new[] { EarlyObjects.Allies },
+                    CollisionObjects = new[] { CollisionObjectTypes.Champions, CollisionObjectTypes.YasuoWall },
                 });
 
             #endregion Fizz
@@ -1206,7 +1208,7 @@ namespace Evade
                     DangerValue = 2,
                     IsDangerous = false,
                     MissileSpellName = "GalioResoluteSmite",
-                    EarlyEvade = new[] {EarlyObjects.Allies, EarlyObjects.Minions, EarlyObjects.AllyObjects},
+                    EarlyEvade = new[] { EarlyObjects.Allies, EarlyObjects.Minions, EarlyObjects.AllyObjects },
                 });
 
             Spells.Add(
@@ -1269,8 +1271,8 @@ namespace Evade
                     DangerValue = 2,
                     IsDangerous = false,
                     ForceRemove = true,
-                    MissileSpellName = "gnarqmissile",
-                    CollisionObjects = new[] {CollisionObjectTypes.YasuoWall},
+                    MissileSpellName = "GnarQ",
+                    CollisionObjects = new[] { CollisionObjectTypes.YasuoWall },
                 });
 
             Spells.Add(
@@ -1292,10 +1294,10 @@ namespace Evade
                     DangerValue = 2,
                     IsDangerous = false,
                     ForceRemove = true,
-                    MissileSpellName = "GnarQMissileReturn",
+                    MissileSpellName = "GnarQReturn",
                     DisableFowDetection = false,
                     DisabledByDefault = true,
-                    CollisionObjects = new[] {CollisionObjectTypes.YasuoWall},
+                    CollisionObjects = new[] { CollisionObjectTypes.YasuoWall },
                 });
 
             Spells.Add(
@@ -2553,9 +2555,9 @@ namespace Evade
                     ChampionName = "Morgana",
                     SpellName = "DarkBindingMissile",
                     Slot = SpellSlot.Q,
-                    Type = SkillShotType.SkillshotMissileLine,
+                    Type = SkillShotType.SkillshotLine,
                     Delay = 250,
-                    Range = 1300,
+                    Range = 1370,
                     Radius = 80,
                     MissileSpeed = 1200,
                     FixedRange = true,
@@ -3308,7 +3310,7 @@ namespace Evade
                     ChampionName = "Sona",
                     SpellName = "SonaR",
                     Slot = SpellSlot.R,
-                    Type = SkillShotType.SkillshotMissileLine,
+                    Type = SkillShotType.SkillshotLine,
                     Delay = 250,
                     Range = 1000,
                     Radius = 140,
@@ -3318,7 +3320,7 @@ namespace Evade
                     DangerValue = 5,
                     IsDangerous = true,
                     MissileSpellName = "SonaR",
-                    CollisionObjects = new[] {CollisionObjectTypes.YasuoWall},
+                    CollisionObjects = new[] { CollisionObjectTypes.YasuoWall },
                 });
 
             #endregion Sona
@@ -3973,7 +3975,7 @@ namespace Evade
                     ChampionName = "Viktor",
                     SpellName = "Laser",
                     Slot = SpellSlot.E,
-                    Type = SkillShotType.SkillshotMissileLine,
+                    Type = SkillShotType.SkillshotLine,
                     Delay = 250,
                     Range = 1500,
                     Radius = 80,
@@ -3982,9 +3984,10 @@ namespace Evade
                     AddHitbox = true,
                     DangerValue = 2,
                     IsDangerous = false,
+                    TakeClosestPath = true,
                     MissileSpellName = "ViktorDeathRayMissile",
-                    ExtraMissileNames = new[] {"viktoreaugmissile"},
-                    CollisionObjects = new[] {CollisionObjectTypes.YasuoWall},
+                    ExtraMissileNames = new[] { "viktoreaugmissile" },
+                    CollisionObjects = new[] { CollisionObjectTypes.YasuoWall },
                 });
 
             #endregion Viktor
@@ -4043,7 +4046,7 @@ namespace Evade
                     DangerValue = 2,
                     IsDangerous = true,
                     MissileSpellName = "XerathMageSpearMissile",
-                    CollisionObjects = new[] {CollisionObjectTypes.YasuoWall},
+                    CollisionObjects = new[] { CollisionObjectTypes.YasuoWall },
                 });
 
             Spells.Add(
@@ -4103,7 +4106,7 @@ namespace Evade
                     DangerValue = 3,
                     IsDangerous = true,
                     MissileSpellName = "yasuoq3w",
-                    CollisionObjects = new[] {CollisionObjectTypes.YasuoWall}
+                    CollisionObjects = new[] { CollisionObjectTypes.YasuoWall }
                 });
 
             Spells.Add(
@@ -4157,7 +4160,7 @@ namespace Evade
                     ChampionName = "Zed",
                     SpellName = "ZedQ",
                     Slot = SpellSlot.Q,
-                    Type = SkillShotType.SkillshotMissileLine,
+                    Type = SkillShotType.SkillshotLine,
                     Delay = 250,
                     Range = 925,
                     Radius = 50,
@@ -4350,7 +4353,7 @@ namespace Evade
                     ChampionName = "Zyra",
                     SpellName = "ZyraE",
                     Slot = SpellSlot.E,
-                    Type = SkillShotType.SkillshotMissileLine,
+                    Type = SkillShotType.SkillshotLine,
                     Delay = 250,
                     Range = 1150,
                     Radius = 77,
