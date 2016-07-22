@@ -136,7 +136,7 @@ namespace Evade
                     DangerValue = 2,
                     IsDangerous = false,
                     MissileSpellName = "AhriOrbMissile",
-                    CollisionObjects = new[] { CollisionObjectTypes.YasuoWall },
+                    CollisionObjects = new[] {CollisionObjectTypes.YasuoWall},
                 });
 
             Spells.Add(
@@ -156,7 +156,7 @@ namespace Evade
                     IsDangerous = false,
                     MissileFollowsUnit = true,
                     MissileSpellName = "AhriOrbReturn",
-                    CollisionObjects = new[] { CollisionObjectTypes.YasuoWall },
+                    CollisionObjects = new[] {CollisionObjectTypes.YasuoWall},
                 });
 
             Spells.Add(
@@ -387,7 +387,7 @@ namespace Evade
                     ChampionName = "AurelionSol",
                     SpellName = "AurelionSolR",
                     Slot = SpellSlot.R,
-                    Type = SkillShotType.SkillshotMLine,
+                    Type = SkillShotType.SkillshotMissileLine,
                     Delay = 300,
                     Range = 1420,
                     Radius = 120,
@@ -618,7 +618,7 @@ namespace Evade
                     MissileSpellName = "CaitlynEntrapmentMissile",
                     CollisionObjects =
                         new[]
-                        { CollisionObjectTypes.Champions, CollisionObjectTypes.Minion, CollisionObjectTypes.YasuoWall },
+                        {CollisionObjectTypes.Champions, CollisionObjectTypes.Minion, CollisionObjectTypes.YasuoWall},
                 });
 
             #endregion Caitlyn
@@ -772,7 +772,7 @@ namespace Evade
                     ChampionName = "Corki",
                     SpellName = "MissileBarrage2",
                     Slot = SpellSlot.R,
-                    Type = SkillShotType.SkillshotMissileLine,
+                    Type = SkillShotType.SkillshotLine,
                     Delay = 200,
                     Range = 1500,
                     Radius = 40,
@@ -913,7 +913,7 @@ namespace Evade
                     ChampionName = "Draven",
                     SpellName = "DravenDoubleShot",
                     Slot = SpellSlot.E,
-                    Type = SkillShotType.SkillshotMissileLine,
+                    Type = SkillShotType.SkillshotLine,
                     Delay = 250,
                     Range = 1100,
                     Radius = 130,
@@ -975,7 +975,7 @@ namespace Evade
                     ChampionName = "Ekko",
                     SpellName = "EkkoQ",
                     Slot = SpellSlot.Q,
-                    Type = SkillShotType.SkillshotMissileLine,
+                    Type = SkillShotType.SkillshotLine,
                     Delay = 250,
                     Range = 950,
                     Radius = 60,
@@ -1024,7 +1024,7 @@ namespace Evade
                     DangerValue = 3,
                     IsDangerous = false,
                     MissileSpellName = "EkkoR",
-                    FromObjects = new[] { "Ekko_Base_R_TrailEnd.troy" },
+                    FromObjects = new[] {"Ekko_Base_R_TrailEnd.troy"},
                 });
 
             #endregion Ekko
@@ -2214,7 +2214,7 @@ namespace Evade
                     ChampionName = "LeeSin",
                     SpellName = "BlindMonkQOne",
                     Slot = SpellSlot.Q,
-                    Type = SkillShotType.SkillshotMissileLine,
+                    Type = SkillShotType.SkillshotLine,
                     Delay = 250,
                     Range = 1100,
                     Radius = 65,
@@ -2237,7 +2237,7 @@ namespace Evade
                     ChampionName = "Leona",
                     SpellName = "LeonaZenithBlade",
                     Slot = SpellSlot.E,
-                    Type = SkillShotType.SkillshotMissileLine,
+                    Type = SkillShotType.SkillshotLine,
                     Delay = 350,
                     Range = 975,
                     Radius = 70,
@@ -2248,7 +2248,7 @@ namespace Evade
                     IsDangerous = true,
                     TakeClosestPath = true,
                     MissileSpellName = "LeonaZenithBladeMissile",
-                    CollisionObjects = new[] {CollisionObjectTypes.YasuoWall},
+                    CollisionObjects = new[] { CollisionObjectTypes.YasuoWall },
                 });
 
             Spells.Add(
@@ -2340,7 +2340,7 @@ namespace Evade
                     ChampionName = "Lucian",
                     SpellName = "LucianQ",
                     Slot = SpellSlot.Q,
-                    Type = SkillShotType.SkillshotMissileLine,
+                    Type = SkillShotType.SkillshotLine,
                     Delay = 450,
                     Range = 1140,
                     Radius = 70,
@@ -2444,7 +2444,7 @@ namespace Evade
                     ChampionName = "Lux",
                     SpellName = "LuxLightBinding",
                     Slot = SpellSlot.Q,
-                    Type = SkillShotType.SkillshotMissileLine,
+                    Type = SkillShotType.SkillshotLine,
                     Delay = 250,
                     Range = 1300,
                     Radius = 70,
@@ -2621,7 +2621,7 @@ namespace Evade
                     ChampionName = "Nautilus",
                     SpellName = "NautilusAnchorDrag",
                     Slot = SpellSlot.Q,
-                    Type = SkillShotType.SkillshotMissileLine,
+                    Type = SkillShotType.SkillshotLine,
                     Delay = 250,
                     Range = 1250,
                     Radius = 90,
@@ -2965,7 +2965,7 @@ namespace Evade
                     ChampionName = "Rumble",
                     SpellName = "RumbleGrenade",
                     Slot = SpellSlot.E,
-                    Type = SkillShotType.SkillshotMissileLine,
+                    Type = SkillShotType.SkillshotLine,
                     Delay = 250,
                     Range = 950,
                     Radius = 60,
@@ -2987,7 +2987,7 @@ namespace Evade
                     ChampionName = "Rumble",
                     SpellName = "RumbleCarpetBombM",
                     Slot = SpellSlot.R,
-                    Type = SkillShotType.SkillshotMissileLine,
+                    Type = SkillShotType.SkillshotLine,
                     Delay = 400,
                     MissileDelayed = true,
                     Range = 1200,
@@ -3243,7 +3243,7 @@ namespace Evade
                     ChampionName = "Sivir",
                     SpellName = "SivirQReturn",
                     Slot = SpellSlot.Q,
-                    Type = SkillShotType.SkillshotMissileLine,
+                    Type = SkillShotType.SkillshotLine,
                     Delay = 0,
                     Range = 1250,
                     Radius = 100,
@@ -3264,7 +3264,7 @@ namespace Evade
                     ChampionName = "Sivir",
                     SpellName = "SivirQ",
                     Slot = SpellSlot.Q,
-                    Type = SkillShotType.SkillshotMissileLine,
+                    Type = SkillShotType.SkillshotLine,
                     Delay = 250,
                     Range = 1250,
                     Radius = 100,
@@ -3567,7 +3567,7 @@ namespace Evade
                     ChampionName = "Thresh",
                     SpellName = "ThreshQ",
                     Slot = SpellSlot.Q,
-                    Type = SkillShotType.SkillshotMissileLine,
+                    Type = SkillShotType.SkillshotLine,
                     Delay = 500,
                     Range = 1100,
                     Radius = 70,
@@ -3586,7 +3586,7 @@ namespace Evade
                     ChampionName = "Thresh",
                     SpellName = "ThreshEFlay",
                     Slot = SpellSlot.E,
-                    Type = SkillShotType.SkillshotMissileLine,
+                    Type = SkillShotType.SkillshotLine,
                     Delay = 125,
                     Range = 1075,
                     Radius = 110,
@@ -3701,7 +3701,7 @@ namespace Evade
                     ChampionName = "Urgot",
                     SpellName = "UrgotHeatseekingLineMissile",
                     Slot = SpellSlot.Q,
-                    Type = SkillShotType.SkillshotMissileLine,
+                    Type = SkillShotType.SkillshotLine,
                     Delay = 125,
                     Range = 1000,
                     Radius = 60,
