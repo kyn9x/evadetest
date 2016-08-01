@@ -69,7 +69,7 @@ namespace Evade.Pathfinding
                             {
                                 node = new Node(pol.Points[i]);
                             }
-                            
+
                             nodes.Add(node);
                             foreach (var polygon in outerPolygons)
                             {
@@ -117,7 +117,7 @@ namespace Evade.Pathfinding
             {
                 Console.WriteLine(ex.ToString());
             }
-            
+
             return result;
         }
 
