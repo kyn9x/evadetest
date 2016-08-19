@@ -36,7 +36,7 @@ namespace Evade
         public const int SkillShotsExtraRange = 20;
         public const int GridSize = 10;
         public const int ExtraEvadeDistance = 15;
-        public const int PathFindingDistance = 65;
+        public const int PathFindingDistance = 180;
         public const int PathFindingDistance2 = 35;
 
         public const int DiagonalEvadePointsCount = 7;
@@ -161,14 +161,14 @@ namespace Evade
             drawings.Add("DisabledDraw", new CheckBox("Draw Disabled"));
             DisabledColor = Color.Red;
 
-            drawings.AddLabel("Missile Draw Color= Green");
+            drawings.AddLabel("Missile Draw Color= White");
             drawings.Add("MissileDraw", new CheckBox("Draw Missile"));
-            MissileColor = Color.Green;
+            MissileColor = Color.White;
 
             //drawings.AddItem(new MenuItem("EnabledColor", "Enabled spell color").SetValue(Color.White));
             //drawings.AddItem(new MenuItem("DisabledColor", "Disabled spell color").SetValue(Color.Red));
             //drawings.AddItem(new MenuItem("MissileColor", "Missile color").SetValue(Color.LimeGreen));
-            drawings.Add("Border", new Slider("Border Width", 1, 5, 1));
+            drawings.Add("Border", new Slider("Border Width", 2, 5, 2));
 
             drawings.Add("EnableDrawings", new CheckBox("Enabled"));
             drawings.Add("ShowEvadeStatus", new CheckBox("Draw Evade Status"));

@@ -270,6 +270,7 @@ namespace Evade
                     Direction = (End - Start).Normalized();
                     UpdatePolygon();
                 }
+
             }
             
             if (SpellData.SpellName == "TaricE")
@@ -462,7 +463,7 @@ namespace Evade
 
             //skillshots without missile
             var timeToExplode = SpellData.ExtraDuration + SpellData.Delay +
-                                (int) (1000 * Start.Distance(End) / SpellData.MissileSpeed) -
+                                (int)(1000 * Start.Distance(End) / SpellData.MissileSpeed) -
                                 (Utils.TickCount - StartTick);
 
             return timeToExplode > timeOffset + delay;
@@ -661,7 +662,7 @@ namespace Evade
             if (!IsSafe(unit.ServerPosition.To2D()))
             {
                 var timeToExplode = SpellData.ExtraDuration + SpellData.Delay +
-                                    (int) ((1000 * Start.Distance(End)) / SpellData.MissileSpeed) -
+                                    (int)((1000 * Start.Distance(End)) / SpellData.MissileSpeed) -
                                     (Utils.TickCount - StartTick);
                 if (timeToExplode <= time)
                 {
@@ -671,6 +672,7 @@ namespace Evade
 
             return false;
         }
+
 
         public void Draw(Color color, Color missileColor, int width = 1)
         {
@@ -684,8 +686,8 @@ namespace Evade
             {
                 var position = GetMissilePosition(0);
                 Utils.DrawLineInWorld(
-                    (position + SpellData.Radius*Direction.Perpendicular()).To3D(),
-                    (position - SpellData.Radius*Direction.Perpendicular()).To3D(), 2, missileColor);
+                    (position + SpellData.Radius * Direction.Perpendicular()).To3D(),
+                    (position - SpellData.Radius * Direction.Perpendicular()).To3D(), 2, missileColor);
             }
         }
     }

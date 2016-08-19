@@ -324,7 +324,8 @@ namespace Evade
                     MissileSpellName = "VolleyAttack",
                     MultipleNumber = 9,
                     MultipleAngle = 4.62f * (float)Math.PI / 180,
-                    CanBeRemoved = true,
+                    DisabledByDefault = true,
+                    CanBeRemoved = true
                     CollisionObjects =
                         new[]
                         {CollisionObjectTypes.Champions, CollisionObjectTypes.YasuoWall, CollisionObjectTypes.Minion}
@@ -442,7 +443,7 @@ namespace Evade
 
             #endregion
 
-            #region Blatzcrank
+            #region Blitzcrank
 
             Spells.Add(
                 new SpellData
@@ -596,6 +597,7 @@ namespace Evade
                     DangerValue = 2,
                     IsDangerous = true,
                     MissileSpellName = "CaitlynPiltoverPeacemaker",
+                    CanBeRemoved = true,
                     CollisionObjects = new[] { CollisionObjectTypes.YasuoWall }
                 });
 
@@ -615,7 +617,7 @@ namespace Evade
                     DangerValue = 1,
                     IsDangerous = true,
                     MissileSpellName = "CaitlynEntrapmentMissile",
-                    CanBeRemoved = true,
+                    
                     CollisionObjects =
                         new[]
                         {CollisionObjectTypes.Champions, CollisionObjectTypes.Minion, CollisionObjectTypes.YasuoWall}
@@ -1069,6 +1071,7 @@ namespace Evade
                     DangerValue = 2,
                     IsDangerous = true,
                     MissileSpellName = "EzrealEssenceFluxMissile",
+                    CanBeRemoved = true,
                     CollisionObjects = new[] { CollisionObjectTypes.YasuoWall },
                 });
 
@@ -1088,6 +1091,7 @@ namespace Evade
                     DangerValue = 3,
                     IsDangerous = true,
                     MissileSpellName = "EzrealTrueshotBarrage",
+                    CanBeRemoved = true,
                     CollisionObjects = new[] { CollisionObjectTypes.YasuoWall },
                     Id = 245,
                 });
@@ -1137,7 +1141,7 @@ namespace Evade
                     MissileSpellName = "FizzMarinerDoomMissile",
                     EarlyEvade = new[] { EarlyObjects.Allies },
                     CollisionObjects = new[] { CollisionObjectTypes.Champions, CollisionObjectTypes.YasuoWall },
-                    CanBeRemoved = true,
+                    
                 });
 
             #endregion Fizz
@@ -2419,7 +2423,7 @@ namespace Evade
                     IsDangerous = true,
                     MissileSpellName = "LuxLightBindingMis",
                     EarlyEvade = new[] { EarlyObjects.Allies, EarlyObjects.Minions, EarlyObjects.AllyObjects },
-                    //CanBeRemoved = true,
+                    //
                     //CollisionObjects = new[] { CollisionObjectTypes.Champions, CollisionObjectTypes.Minion, CollisionObjectTypes.YasuoWall, },
                 });
 
@@ -2647,8 +2651,8 @@ namespace Evade
                     DangerValue = 3,
                     IsDangerous = true,
                     MissileSpellName = "JavelinToss",
-                    EarlyEvade = new[] { EarlyObjects.Allies, EarlyObjects.Minions, EarlyObjects.AllyObjects },
                     CanBeRemoved = true,
+                    EarlyEvade = new[] { EarlyObjects.Allies, EarlyObjects.Minions, EarlyObjects.AllyObjects },
                     CollisionObjects =
                         new[]
                         {CollisionObjectTypes.Champions, CollisionObjectTypes.Minion, CollisionObjectTypes.YasuoWall},
@@ -4185,7 +4189,7 @@ namespace Evade
                     IsDangerous = true,
                     MissileSpellName = "ZiggsQSpell",
                     EarlyEvade = new[] { EarlyObjects.Allies, EarlyObjects.Minions, EarlyObjects.AllyObjects },
-                    CanBeRemoved = false,
+                    CanBeRemoved = true,
                     DisableFowDetection = false,
                 });
 
@@ -4207,7 +4211,7 @@ namespace Evade
                     MissileSpellName = "ZiggsQSpell2",
                     ExtraMissileNames = new[] { "ZiggsQSpell2" },
                     EarlyEvade = new[] { EarlyObjects.Allies, EarlyObjects.Minions, EarlyObjects.AllyObjects },
-                    CanBeRemoved = false,
+                    CanBeRemoved = true,
                     DisableFowDetection = false,
                 });
 
@@ -4229,7 +4233,7 @@ namespace Evade
                     MissileSpellName = "ZiggsQSpell3",
                     ExtraMissileNames = new[] { "ZiggsQSpell3" },
                     EarlyEvade = new[] { EarlyObjects.Allies, EarlyObjects.Minions, EarlyObjects.AllyObjects },
-                    CanBeRemoved = false,
+                    CanBeRemoved = true,
                     DisableFowDetection = false,
                 });
 
