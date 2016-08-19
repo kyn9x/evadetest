@@ -325,7 +325,7 @@ namespace Evade
                     MultipleNumber = 9,
                     MultipleAngle = 4.62f * (float)Math.PI / 180,
                     DisabledByDefault = true,
-                    CanBeRemoved = true
+                    CanBeRemoved = true,
                     CollisionObjects =
                         new[]
                         {CollisionObjectTypes.Champions, CollisionObjectTypes.YasuoWall, CollisionObjectTypes.Minion}
