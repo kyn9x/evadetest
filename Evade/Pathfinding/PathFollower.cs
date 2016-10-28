@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.NetworkInformation;
@@ -31,7 +31,7 @@ namespace Evade.Pathfinding
                 {
                     Path.RemoveAt(0);
                 }
-                
+
                 if (Path.Count > 0)
                 {
                     ObjectManager.Player.SendMovePacket(Path[0]);

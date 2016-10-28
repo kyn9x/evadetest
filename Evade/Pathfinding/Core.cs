@@ -113,6 +113,7 @@ namespace Evade.Pathfinding
                 result.Reverse();
 
             }
+
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());

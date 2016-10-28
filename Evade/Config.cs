@@ -1,4 +1,4 @@
-// Copyright 2014 - 2014 Esk0r
+﻿// Copyright 2014 - 2014 Esk0r
 // Config.cs is part of Evade.
 // 
 // Evade is free software: you can redistribute it and/or modify
@@ -36,7 +36,7 @@ namespace Evade
         public const int SkillShotsExtraRange = 20;
         public const int GridSize = 10;
         public const int ExtraEvadeDistance = 15;
-        public const int PathFindingDistance = 180;
+        public const int PathFindingDistance = 60;
         public const int PathFindingDistance2 = 35;
 
         public const int DiagonalEvadePointsCount = 7;
@@ -58,9 +58,12 @@ namespace Evade
         public static void CreateMenu()
         {
             #region Menu
-            Menu = MainMenu.AddMenu("Evade", "evade");
-            Menu.Add("Enabled", new KeyBind("Enabled", true, KeyBind.BindTypes.PressToggle, "K".ToCharArray()[0]));
+            Menu = MainMenu.AddMenu("Evade#", "evade");
+            Menu.Add("Enabled", new KeyBind("Enabled", true, KeyBind.BindTypes.PressToggle));
             Menu.Add("OnlyDangerous", new KeyBind("Dodge only dangerous", false, KeyBind.BindTypes.HoldActive)); //
+            Menu.AddSeparator(50);
+
+            Menu.AddLabel("Nên để Delay between movements in milliseconds >= 240 để né tốt nhất"); 
 
             if (Menu == null)
             {
@@ -161,9 +164,9 @@ namespace Evade
             drawings.Add("DisabledDraw", new CheckBox("Draw Disabled"));
             DisabledColor = Color.Red;
 
-            drawings.AddLabel("Missile Draw Color= White");
+            drawings.AddLabel("Missile Draw Color= Lime");
             drawings.Add("MissileDraw", new CheckBox("Draw Missile"));
-            MissileColor = Color.White;
+            MissileColor = Color.Lime;
 
             //drawings.AddItem(new MenuItem("EnabledColor", "Enabled spell color").SetValue(Color.White));
             //drawings.AddItem(new MenuItem("DisabledColor", "Disabled spell color").SetValue(Color.Red));
@@ -178,7 +181,7 @@ namespace Evade
             #region Misc
 
             misc = Menu.AddSubMenu("Misc", "Misc");
-            misc.Add("BlockSpells", new ComboBox("Block spells while evading", 1, "No", "Only dangerous", "Always"));
+            misc.AddStringList("BlockSpells", "Block spells while evading", new[] { "No", "Only dangerous", "Always" }, 1);
             //misc.Add("BlockSpells", "Block spells while evading").SetValue(new StringList(new []{"No", "Only dangerous", "Always"}, 1)));
             misc.Add("DisableFow", new CheckBox("Disable fog of war dodging", false));
             misc.Add("ShowEvadeStatus", new CheckBox("Show Evade Status", false));

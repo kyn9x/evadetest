@@ -66,7 +66,7 @@ namespace Evade
 
             #region Blitzcrank
 
-            /*if (ObjectManager.Player.ChampionName == "Blitzcrank")
+            if (ObjectManager.Player.ChampionName == "Blitzcrank")
             {
                 spell = new MoveBuffData(
                     "Blitzcrank W", SpellSlot.W, 100, 3,
@@ -74,7 +74,8 @@ namespace Evade
                         ObjectManager.Player.MoveSpeed *
                         (1 + 0.12f + 0.04f * ObjectManager.Player.Spellbook.GetSpell(SpellSlot.W).Level));
                 Spells.Add(spell);
-            }*/
+            }
+
             #endregion
 
             #region Draven

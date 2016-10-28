@@ -48,24 +48,6 @@ namespace Evade
 
         private static bool _followPath = false;
 
-        public static bool FollowPath
-        {
-            get
-            {
-                return _followPath;
-            }
-
-            set
-            {
-                _followPath = value;
-                if (!_followPath)
-                {
-                    PathFollower.Stop();
-                }
-            }
-        }
-        public static bool Keepfollowing { get; set; }
-
         public static int LastWardJumpAttempt = 0;
 
         public static Vector2 PreviousTickPosition = new Vector2();
@@ -120,7 +102,7 @@ namespace Evade
 
             //Add the game events.
             Game.OnUpdate += Game_OnOnGameUpdate;
-            Player.OnIssueOrder += ObjAiHeroOnOnIssueOrder;
+            EloBuddy.Player.OnIssueOrder += ObjAiHeroOnOnIssueOrder;
             Spellbook.OnCastSpell += Spellbook_OnCastSpell;
             //Set up the OnDetectSkillshot Event.
             SkillshotDetector.OnDetectSkillshot += OnDetectSkillshot;
@@ -130,17 +112,14 @@ namespace Evade
             Drawing.OnDraw += Drawing_OnDraw;
 
             //Ondash event.
-            Dash.OnDash += UnitOnOnDash;
 
             DetectedSkillshots.OnAdd += DetectedSkillshots_OnAdd;
 
             //Initialze the collision
             Collision.Init();
 
-            Chat.Print("Evade By Kyn", Color.Red);
-            Chat.Print("Update 6.15: 31/07/2016", Color.Green);
-            Console.WriteLine("Evade:: Evade By Kyn");
-            Console.WriteLine("Evade::Update 6.15: 31/07/2016");
+            Chat.Print("EVADE# LOADED", Color.White);
+            Console.WriteLine("Evade:: EVADE# LOADED");
 
             if (Config.PrintSpellData)
             {
@@ -191,10 +170,31 @@ namespace Evade
             }
         }
 
+        /*public static bool getCheckBoxItem(Menu, string item)
+        {
+            return [item].Cast<CheckBox>().CurrentValue;
+        }
+
+        public static int getSliderItem(Menu, string item)
+        {
+            return [item].Cast<Slider>().CurrentValue;
+        }
+
+        public static bool getKeyBindItem(Menu, string item)
+        {
+            return [item].Cast<KeyBind>().CurrentValue;
+        }
+
+        public static int getBoxItem(Menu, string item)
+        {
+            return [item].Cast<ComboBox>().CurrentValue;
+        }*/
+
         private static void OnDetectSkillshot(Skillshot skillshot)
         {
             //Check if the skillshot is already added.
             var alreadyAdded = false;
+
 
             if (Config.misc["DisableFow"].Cast<CheckBox>().CurrentValue && !skillshot.Unit.IsVisible)
             {
@@ -272,8 +272,18 @@ namespace Evade
                         return;
                     }
 
-                    if (skillshot.SpellData.SpellName == "TaricE" && (skillshot.Unit as AIHeroClient).ChampionName == "Taric")
-                    { }
+                    if (skillshot.SpellData.Centered)
+                    {
+                        var start = skillshot.Start - skillshot.Direction * skillshot.SpellData.Range;
+                        var end = skillshot.Start + skillshot.Direction * skillshot.SpellData.Range;
+                        var skillshotToAdd = new Skillshot(
+                            skillshot.DetectionType, skillshot.SpellData, skillshot.StartTick, start, end,
+                            skillshot.Unit);
+                        DetectedSkillshots.Add(skillshotToAdd);
+                        return;
+                    }
+
+                    if (skillshot.SpellData.SpellName == "TaricE" && (skillshot.Unit as AIHeroClient).ChampionName == "Taric") { }
 
                     if (skillshot.SpellData.SpellName == "SyndraE" || skillshot.SpellData.SpellName == "syndrae5")
                     {
@@ -299,7 +309,7 @@ namespace Evade
                                 positions.Add(minion.ServerPosition.To2D());
                             }
                         }
-                        Console.WriteLine(positions.Count + " positions to check");
+
                         foreach (var position in positions)
                         {
                             var v = position - skillshot.Unit.ServerPosition.To2D();
@@ -345,6 +355,19 @@ namespace Evade
                         DetectedSkillshots.Add(skillshotToAdd);
                         return;
                     }
+
+                    if (skillshot.SpellData.SpellName == "JinxE")
+                    {
+                        var start = skillshot.End - skillshot.Direction.Perpendicular() * 275;
+                        var end = skillshot.End + skillshot.Direction.Perpendicular() * 275;
+                        var skillshotToAdd = new Skillshot(
+                            skillshot.DetectionType, skillshot.SpellData, skillshot.StartTick, start, end,
+                            skillshot.Unit);
+                        DetectedSkillshots.Add(skillshotToAdd);
+                        return;
+                    }
+
+
 
                     if (skillshot.SpellData.SpellName == "DianaArc")
                     {
@@ -484,19 +507,23 @@ namespace Evade
             if (!Config.Menu["Enabled"].Cast<KeyBind>().CurrentValue)
             {
                 Evading = false;
+                EvadeToPoint = Vector2.Zero;
+                PathFollower.Stop();
                 return;
             }
 
             if (PlayerChampionName == "Olaf" && Config.misc["DisableEvadeForOlafR"].Cast<CheckBox>().CurrentValue && ObjectManager.Player.HasBuff("OlafRagnarok"))
             {
                 Evading = false;
+                EvadeToPoint = Vector2.Zero;
+                PathFollower.Stop();
                 return;
             }
 
             //Avoid sending move/cast packets while dead.
             if (ObjectManager.Player.IsDead)
             {
-                Evading = true;
+                Evading = false;
                 EvadeToPoint = Vector2.Zero;
                 return;
             }
@@ -509,9 +536,9 @@ namespace Evade
                 return;
             }
 
-            if (Utility.PlayerWindingUp && !Orbwalker.DisableAttacking)
+            if (Utility.PlayerWindingUp && !Orbwalker.IsAutoAttacking)
             {
-                Evading = true;
+                Evading = false;
                 return;
             }
 
@@ -535,23 +562,26 @@ namespace Evade
                 return;
             }
 
-            /*
+
             //Shield allies.
             foreach (var ally in ObjectManager.Get<AIHeroClient>())
             {
-                if (ally.IsValidTarget(1000))
+                if (ally.IsValidTarget(1000, false))
                 {
-                    var shieldAlly = Config.shielding["shield" + ally.ChampionName].Cast<CheckBox>(); //I think xD
-                    if (shieldAlly != null && shieldAlly.CurrentValue)
+                    var shieldAlly = Config.shielding["shield" + ally.ChampionName];
+                    if (shieldAlly != null && shieldAlly.Cast<CheckBox>().CurrentValue)
                     {
                         var allySafeResult = IsSafe(ally.ServerPosition.To2D());
+
                         if (!allySafeResult.IsSafe)
                         {
                             var dangerLevel = 0;
+
                             foreach (var skillshot in allySafeResult.SkillshotList)
                             {
                                 dangerLevel = Math.Max(dangerLevel, skillshot.GetSliderValue("DangerLevel").CurrentValue);
                             }
+
                             foreach (var evadeSpell in EvadeSpellDatabase.Spells)
                             {
                                 if (evadeSpell.IsShield && evadeSpell.CanShieldAllies &&
@@ -567,9 +597,9 @@ namespace Evade
                     }
                 }
             }
-            */
+
             //Spell Shielded
-            if (ObjectManager.Player.MagicShield > 0)
+            if (ObjectManager.Player.IsSpellShielded())
             {
                 return;
             }
@@ -577,6 +607,7 @@ namespace Evade
             var currentPath = ObjectManager.Player.GetWaypoints();
             var safeResult = IsSafe(PlayerPosition);
             var safePath = IsSafePath(currentPath, 100);
+
 
             NoSolutionFound = false;
 
@@ -598,6 +629,7 @@ namespace Evade
                     return;
                 }
             }
+
             //Stop evading if the point is not safe.
             else if (Evading)
             {
@@ -611,11 +643,14 @@ namespace Evade
                 if (!safeResult.IsSafe)
                 {
                     //Search for an evade point:
-                    Core.DelayAction(() => TryToEvade(safeResult.SkillshotList, EvadeToPoint.IsValid() ? EvadeToPoint : Game.CursorPos.To2D()), (46));
+                    TryToEvade(safeResult.SkillshotList, EvadeToPoint.IsValid() ? EvadeToPoint : Game.CursorPos.To2D());
                 }
+            }
 
-                /*FOLLOWPATH*/
-                if (!NoSolutionFound && !Evading && EvadeToPoint.IsValid() && safeResult.IsSafe)
+            /*FOLLOWPATH*/
+            if (!NoSolutionFound && !Evading && EvadeToPoint.IsValid() && safeResult.IsSafe)
+            {
+                if (EvadeSpellDatabase.Spells.Any(evadeSpell => evadeSpell.Name == "Walking" && evadeSpell.Enabled))
                 {
                     if (safePath.IsSafe && !ForcePathFollowing)
                     {
@@ -634,7 +669,6 @@ namespace Evade
                             }
                             return;
                         }
-
 
                         var path2 = ObjectManager.Player.GetPath(EvadeToPoint.To3D()).To2DList();
                         var safePath2 = IsSafePath(path2, 100);
@@ -668,7 +702,6 @@ namespace Evade
                         }
 
                         PathFollower.Follow(candidate);
-
 
                         PathFollower.KeepFollowingPath(new EventArgs());
 
@@ -762,7 +795,7 @@ namespace Evade
             }
 
             //Spell Shielded
-            if (ObjectManager.Player.MagicShield > 0)
+            if (ObjectManager.Player.IsSpellShielded())
             {
                 return;
             }
@@ -866,11 +899,10 @@ namespace Evade
             {
                 if (Config.PrintSpellData)
                 {
-                    Console.WriteLine(
+                    /*Console.WriteLine(
                         Utils.TickCount + "DASH: Speed: " + args.Speed + " Width:" +
-                        args.EndPos.Distance(args.StartPos));
+                        args.EndPos.Distance(args.StartPos));*/
                 }
-
                 //Utility.DelayAction.Add(args.Duration, delegate { Evading = false; });
             }
         }
@@ -922,6 +954,7 @@ namespace Evade
                     }
                 }
             }
+
 
             //Return the first intersection
             if (!IsSafe)
@@ -1111,6 +1144,7 @@ namespace Evade
                                                 }
                                             }
 
+
                                             var ePoint = to.Closest(points);
                                             ObjectManager.Player.Spellbook.CastSpell(wardSlot.SpellSlot, ePoint.To3D());
                                             LastWardJumpAttempt = Utils.TickCount;
@@ -1238,6 +1272,7 @@ namespace Evade
                                     return;
                                 }
 
+
                                 if (evadeSpell.IsTargetted &&
                                     evadeSpell.ValidTargets.Contains(SpellValidTargets.AllyWards) &&
                                     Config.evadeSpells["WardJump" + evadeSpell.Name].Cast<CheckBox>().CurrentValue)
@@ -1271,6 +1306,7 @@ namespace Evade
                                                     points[i] = extended;
                                                 }
                                             }
+
 
                                             var ePoint = to.Closest(points);
                                             ObjectManager.Player.Spellbook.CastSpell(wardSlot.SpellSlot, ePoint.To3D());
@@ -1427,7 +1463,7 @@ namespace Evade
                 var heropos = Drawing.WorldToScreen(ObjectManager.Player.Position);
                 if (Config.Menu["Enabled"].Cast<KeyBind>().CurrentValue)
                 {
-                    Drawing.DrawText(heropos.X, heropos.Y, Color.Orange, "EVADE");
+                    Drawing.DrawText(heropos.X, heropos.Y, Color.Red, "Evade: On");
                 }
             }
 

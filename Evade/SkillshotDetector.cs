@@ -46,7 +46,9 @@ namespace Evade
             GameObject.OnCreate += ObjSpellMissileOnOnCreate;
             GameObject.OnCreate += GameObject_OnCreate; //TODO: Detect lux R and other large skillshots.
             GameObject.OnDelete += GameObject_OnDelete;
+
         }
+
 
         private static void GameObject_OnCreate(GameObject sender, EventArgs args)
         {
@@ -55,12 +57,12 @@ namespace Evade
                 Console.WriteLine(Utils.TickCount + " " + sender.Name + " " + sender.IsAlly + " " + sender.Type);
             }*/
             var spellData = SpellDatabase.GetBySourceObjectName(sender.Name);
-            
+
             if (spellData == null)
             {
                 return;
             }
-            if (Config.Menu["Enabled" + spellData.MenuItemName] == null)
+            if (Config.skillShots["Enabled" + spellData.MenuItemName] == null)
             {
                 return;
             }
@@ -101,7 +103,7 @@ namespace Evade
             }
 
 
-        /* Console.WriteLine(
+            /*Console.WriteLine(
                 Utils.TickCount + " Projectile Created: " + missile.SData.Name + " distance: " +
                 missile.SData.CastRange + "Radius: " +
                 missile.SData.LineWidth + " Speed: " + missile.SData.MissileSpeed);  */
@@ -134,7 +136,7 @@ namespace Evade
             }
 
 
-            /*Console.WriteLine(
+            /* Console.WriteLine(
                     Utils.TickCount + " Projectile Created: " + missile.SData.Name + " distance: " +
                     missile.SData.CastRange + "Radius: " +
                     missile.SData.LineWidth + " Speed: " + missile.SData.MissileSpeed);  */
@@ -215,10 +217,10 @@ namespace Evade
             Program.DetectedSkillshots.RemoveAll(
                 skillshot =>
                     (skillshot.SpellData.MissileSpellName.Equals(spellName, StringComparison.InvariantCultureIgnoreCase) ||
-                     skillshot.SpellData.ExtraMissileNames.Contains(spellName, StringComparer.InvariantCultureIgnoreCase)) &&
-                    (skillshot.Unit.NetworkId == caster.NetworkId &&
-                     ((missile.EndPosition.To2D() - missile.StartPosition.To2D()).AngleBetween(skillshot.Direction) < 10) &&
-                     skillshot.SpellData.CanBeRemoved || skillshot.SpellData.ForceRemove)); // 
+                      skillshot.SpellData.ExtraMissileNames.Contains(spellName, StringComparer.InvariantCultureIgnoreCase)) &&
+                      (skillshot.Unit.NetworkId == caster.NetworkId &&
+                       ((missile.EndPosition.To2D() - missile.StartPosition.To2D()).AngleBetween(skillshot.Direction) < 10) &&
+                       skillshot.SpellData.CanBeRemoved || skillshot.SpellData.ForceRemove)); //  
         }
 
         /// <summary>
@@ -232,7 +234,7 @@ namespace Evade
         public static event OnDeleteMissileH OnDeleteMissile;
 
 
-        private static void TriggerOnDetectSkillshot(DetectionType detectionType,
+        internal static void TriggerOnDetectSkillshot(DetectionType detectionType,
             SpellData spellData,
             int startT,
             Vector2 start,
